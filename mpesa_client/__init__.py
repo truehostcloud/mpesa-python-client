@@ -5,7 +5,7 @@
 """
     Safaricom APIs
 
-    # Introduction  What does your API do?  # Overview  Things that the developers should know about  # Authentication  What is the preferred way of using the API?  # Error Codes  What errors and status codes can a user expect?  # Rate limit  Is there a limit to the number of requests an user can send?  # noqa: E501
+    M-Pesa API client for Daraja  # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
@@ -15,7 +15,10 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
-from mpesa_client.apis.default_api import DefaultApi
+from mpesa_client.apis.disbursement_api import DisbursementApi
+from mpesa_client.apis.experience_api import ExperienceApi
+from mpesa_client.apis.payments_api import PaymentsApi
+from mpesa_client.apis.security_api import SecurityApi
 # import ApiClient
 from mpesa_client.api_client import ApiClient
 from mpesa_client.configuration import Configuration

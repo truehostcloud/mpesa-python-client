@@ -1,0 +1,273 @@
+openapi: 3.0.0
+info:
+  title: Safaricom APIs
+  description: |-
+    M-Pesa API client for Daraja
+  version: 1.0.0
+servers:
+  - url: https://sandbox.safaricom.co.ke
+  - url: https://api.safaricom.co.ke
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    basicAuth:
+      type: http
+      scheme: basic
+paths:
+  /mpesa/b2b/v1/paymentrequest:
+    post:
+      tags:
+        - payments
+      summary: Make a B2B Payment Request
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Initiator: ""
+                SecurityCredential: ""
+                CommandID: ""
+                SenderIdentifierType: ""
+                RecieverIdentifierType: ""
+                Amount: ""
+                PartyA: ""
+                PartyB: ""
+                AccountReference: ""
+                Remarks: ""
+                QueueTimeOutURL: ""
+                ResultURL: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/reversal/v1/request:
+    post:
+      tags:
+        - experience
+      summary: Reverse an M-Pesa Transaction
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Initiator: ""
+                SecurityCredential: ""
+                CommandID: TransactionReversal
+                TransactionID: ""
+                Amount: ""
+                ReceiverParty: ""
+                RecieverIdentifierType: "4"
+                ResultURL: ""
+                QueueTimeOutURL: ""
+                Remarks: ""
+                Occasion: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/transactionstatus/v1/query:
+    post:
+      tags:
+        - experience
+      summary: Query the Transaction Status of an M-Pesa Transaction
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Initiator: ""
+                SecurityCredential: ""
+                CommandID: TransactionStatusQuery
+                TransactionID: ""
+                PartyA: ""
+                IdentifierType: ""
+                ResultURL: ""
+                QueueTimeOutURL: ""
+                Remarks: ""
+                Occasion: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/c2b/v1/simulate:
+    post:
+      tags:
+        - payments
+      summary: Simulate a C2B Payment
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ShortCode: " "
+                CommandID: CustomerPayBillOnline
+                Amount: " "
+                Msisdn: " "
+                BillRefNumber: " "
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/stkpushquery/v1/query:
+    post:
+      tags:
+        - experience
+      summary: Query the status of a Lipa na M-Pesa Online Payment
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                BusinessShortCode: " "
+                Password: " "
+                Timestamp: " "
+                CheckoutRequestID: " "
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/b2c/v1/paymentrequest:
+    post:
+      tags:
+        - disbursement
+      summary: Make a B2C Payment Request
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                InitiatorName: ""
+                SecurityCredential: ""
+                CommandID: ""
+                Amount: ""
+                PartyA: ""
+                PartyB: ""
+                Remarks: ""
+                QueueTimeOutURL: ""
+                ResultURL: ""
+                Occasion: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/stkpush/v1/processrequest:
+    post:
+      tags:
+        - payments
+      summary: Initiate a Lipa na M-Pesa Online Payment
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                BusinessShortCode: " "
+                Password: " "
+                Timestamp: " "
+                TransactionType: CustomerPayBillOnline
+                Amount: " "
+                PartyA: " "
+                PartyB: " "
+                PhoneNumber: " "
+                CallBackURL: https://ip_address:port/callback
+                AccountReference: " "
+                TransactionDesc: " "
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/accountbalance/v1/query:
+    post:
+      tags:
+        - experience
+      summary: Make an Account Balance query
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Initiator: ""
+                SecurityCredential: ""
+                CommandID: AccountBalance
+                PartyA: ""
+                IdentifierType: "4"
+                Remarks: ""
+                QueueTimeOutURL: ""
+                ResultURL: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /oauth/v1/generate:
+    get:
+      tags:
+        - security
+      summary: Generate an OAuth Access Token
+      security:
+        - basicAuth: []
+      parameters:
+        - name: grant_type
+          in: query
+          schema:
+            type: string
+          example: client_credentials
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /mpesa/c2b/v1/registerurl:
+    post:
+      tags:
+        - payments
+      summary: Register C2B Confirmation and Validation URLs
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ShortCode: ""
+                ResponseType: ""
+                ConfirmationURL: ""
+                ValidationURL: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}

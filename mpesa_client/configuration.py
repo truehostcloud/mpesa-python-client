@@ -3,7 +3,7 @@
 """
     Safaricom APIs
 
-    # Introduction  What does your API do?  # Overview  Things that the developers should know about  # Authentication  What is the preferred way of using the API?  # Error Codes  What errors and status codes can a user expect?  # Rate limit  Is there a limit to the number of requests an user can send?  # noqa: E501
+    M-Pesa API client for Daraja  # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
@@ -232,6 +232,13 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
+            'basicAuth':
+                {
+                    'type': 'basic',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': self.get_basic_auth_token()
+                },
         }
 
     def to_debug_report(self):
