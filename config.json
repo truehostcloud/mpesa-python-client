@@ -1,0 +1,7 @@
+{
+   "packageName": "mpesa_client",
+   "apiVersion": "1.0.0",
+   "outputDir": "./mpesa",
+   "modelPackage": "models",
+   "apiPackage": "apis"
+}
