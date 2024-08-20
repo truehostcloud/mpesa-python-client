@@ -158,10 +158,6 @@ try:
     api_instance.mpesa_transactionstatus_v1_query_post(body=body, authorization=authorization, content_type=content_type)
 except ApiException as e:
     print("Exception when calling DefaultApi->mpesa_transactionstatus_v1_query_post: %s\n" % e)
-# Configure HTTP basic authorization: basicAuth
-configuration = mpesa_client.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = mpesa_client.DefaultApi(mpesa_client.ApiClient(configuration))
@@ -197,9 +193,8 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-## basicAuth
+## BearerAuth
 
-- **Type**: HTTP basic authentication
 
 
 ## Author

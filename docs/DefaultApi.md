@@ -468,13 +468,9 @@ import time
 import mpesa_client
 from mpesa_client.rest import ApiException
 from pprint import pprint
-# Configure HTTP basic authorization: basicAuth
-configuration = mpesa_client.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = mpesa_client.DefaultApi(mpesa_client.ApiClient(configuration))
+api_instance = mpesa_client.DefaultApi()
 grant_type = 'grant_type_example' # str |  (optional)
 
 try:
@@ -496,7 +492,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
