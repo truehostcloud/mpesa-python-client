@@ -657,6 +657,15 @@ components:
           description: This is a message that your system can display to the customer as an acknowledgment of the payment request submission.
     AccountBalanceQueryRequest:
       type: object
+      required:
+        - Initiator
+        - SecurityCredential
+        - CommandID
+        - PartyA
+        - IdentifierType
+        - Remarks
+        - QueueTimeOutURL
+        - ResultURL
       properties:
         Initiator:
           type: string
@@ -703,6 +712,11 @@ components:
           description: This is the description of the request submission status.
     C2BURLRegistrationRequest:
       type: object
+      required:
+        - ShortCode
+        - ResponseType
+        - ConfirmationURL
+        - ValidationURL
       properties:
         ShortCode:
           type: integer

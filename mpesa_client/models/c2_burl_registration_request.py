@@ -48,14 +48,10 @@ class C2BURLRegistrationRequest(object):
         self._confirmation_url = None
         self._validation_url = None
         self.discriminator = None
-        if short_code is not None:
-            self.short_code = short_code
-        if response_type is not None:
-            self.response_type = response_type
-        if confirmation_url is not None:
-            self.confirmation_url = confirmation_url
-        if validation_url is not None:
-            self.validation_url = validation_url
+        self.short_code = short_code
+        self.response_type = response_type
+        self.confirmation_url = confirmation_url
+        self.validation_url = validation_url
 
     @property
     def short_code(self):
@@ -77,6 +73,8 @@ class C2BURLRegistrationRequest(object):
         :param short_code: The short_code of this C2BURLRegistrationRequest.  # noqa: E501
         :type: int
         """
+        if short_code is None:
+            raise ValueError("Invalid value for `short_code`, must not be `None`")  # noqa: E501
 
         self._short_code = short_code
 
@@ -100,6 +98,8 @@ class C2BURLRegistrationRequest(object):
         :param response_type: The response_type of this C2BURLRegistrationRequest.  # noqa: E501
         :type: str
         """
+        if response_type is None:
+            raise ValueError("Invalid value for `response_type`, must not be `None`")  # noqa: E501
         allowed_values = ["Completed", "Cancelled"]  # noqa: E501
         if response_type not in allowed_values:
             raise ValueError(
@@ -129,6 +129,8 @@ class C2BURLRegistrationRequest(object):
         :param confirmation_url: The confirmation_url of this C2BURLRegistrationRequest.  # noqa: E501
         :type: str
         """
+        if confirmation_url is None:
+            raise ValueError("Invalid value for `confirmation_url`, must not be `None`")  # noqa: E501
 
         self._confirmation_url = confirmation_url
 
@@ -152,6 +154,8 @@ class C2BURLRegistrationRequest(object):
         :param validation_url: The validation_url of this C2BURLRegistrationRequest.  # noqa: E501
         :type: str
         """
+        if validation_url is None:
+            raise ValueError("Invalid value for `validation_url`, must not be `None`")  # noqa: E501
 
         self._validation_url = validation_url
 

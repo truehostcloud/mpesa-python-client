@@ -60,22 +60,14 @@ class AccountBalanceQueryRequest(object):
         self._queue_time_out_url = None
         self._result_url = None
         self.discriminator = None
-        if initiator is not None:
-            self.initiator = initiator
-        if security_credential is not None:
-            self.security_credential = security_credential
-        if command_id is not None:
-            self.command_id = command_id
-        if party_a is not None:
-            self.party_a = party_a
-        if identifier_type is not None:
-            self.identifier_type = identifier_type
-        if remarks is not None:
-            self.remarks = remarks
-        if queue_time_out_url is not None:
-            self.queue_time_out_url = queue_time_out_url
-        if result_url is not None:
-            self.result_url = result_url
+        self.initiator = initiator
+        self.security_credential = security_credential
+        self.command_id = command_id
+        self.party_a = party_a
+        self.identifier_type = identifier_type
+        self.remarks = remarks
+        self.queue_time_out_url = queue_time_out_url
+        self.result_url = result_url
 
     @property
     def initiator(self):
@@ -97,6 +89,8 @@ class AccountBalanceQueryRequest(object):
         :param initiator: The initiator of this AccountBalanceQueryRequest.  # noqa: E501
         :type: str
         """
+        if initiator is None:
+            raise ValueError("Invalid value for `initiator`, must not be `None`")  # noqa: E501
 
         self._initiator = initiator
 
@@ -120,6 +114,8 @@ class AccountBalanceQueryRequest(object):
         :param security_credential: The security_credential of this AccountBalanceQueryRequest.  # noqa: E501
         :type: str
         """
+        if security_credential is None:
+            raise ValueError("Invalid value for `security_credential`, must not be `None`")  # noqa: E501
 
         self._security_credential = security_credential
 
@@ -143,6 +139,8 @@ class AccountBalanceQueryRequest(object):
         :param command_id: The command_id of this AccountBalanceQueryRequest.  # noqa: E501
         :type: str
         """
+        if command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
         allowed_values = ["AccountBalance"]  # noqa: E501
         if command_id not in allowed_values:
             raise ValueError(
@@ -172,6 +170,8 @@ class AccountBalanceQueryRequest(object):
         :param party_a: The party_a of this AccountBalanceQueryRequest.  # noqa: E501
         :type: int
         """
+        if party_a is None:
+            raise ValueError("Invalid value for `party_a`, must not be `None`")  # noqa: E501
 
         self._party_a = party_a
 
@@ -195,6 +195,8 @@ class AccountBalanceQueryRequest(object):
         :param identifier_type: The identifier_type of this AccountBalanceQueryRequest.  # noqa: E501
         :type: int
         """
+        if identifier_type is None:
+            raise ValueError("Invalid value for `identifier_type`, must not be `None`")  # noqa: E501
 
         self._identifier_type = identifier_type
 
@@ -218,6 +220,8 @@ class AccountBalanceQueryRequest(object):
         :param remarks: The remarks of this AccountBalanceQueryRequest.  # noqa: E501
         :type: str
         """
+        if remarks is None:
+            raise ValueError("Invalid value for `remarks`, must not be `None`")  # noqa: E501
 
         self._remarks = remarks
 
@@ -241,6 +245,8 @@ class AccountBalanceQueryRequest(object):
         :param queue_time_out_url: The queue_time_out_url of this AccountBalanceQueryRequest.  # noqa: E501
         :type: str
         """
+        if queue_time_out_url is None:
+            raise ValueError("Invalid value for `queue_time_out_url`, must not be `None`")  # noqa: E501
 
         self._queue_time_out_url = queue_time_out_url
 
@@ -264,6 +270,8 @@ class AccountBalanceQueryRequest(object):
         :param result_url: The result_url of this AccountBalanceQueryRequest.  # noqa: E501
         :type: str
         """
+        if result_url is None:
+            raise ValueError("Invalid value for `result_url`, must not be `None`")  # noqa: E501
 
         self._result_url = result_url
 
