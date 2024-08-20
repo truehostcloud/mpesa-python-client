@@ -621,6 +621,21 @@ components:
         TransactionDesc:
           type: string
           description: This is any additional information/comment that can be sent along with the request from your system. Maximum of 13 Characters.
+    B2CPaymentResponse:
+      type: object
+      properties:
+        ConversationID:
+          type: string
+          description: This is a global unique identifier for the transaction request returned by the M-PESA upon successful request submission.
+        OriginatorConversationID:
+          type: string
+          description: This is a global unique identifier for the transaction request returned by the API proxy upon successful request submission.
+        ResponseCode:
+          type: string
+          description: It indicates whether Mobile Money accepts the request or not.
+        ResponseDescription:
+          type: string
+          description: This is the description of the request submission status.
     StkPushResponse:
       type: object
       properties:

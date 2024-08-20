@@ -69,26 +69,16 @@ class TransactionReversalRequest(object):
         self._remarks = None
         self._occasion = None
         self.discriminator = None
-        if initiator is not None:
-            self.initiator = initiator
-        if security_credential is not None:
-            self.security_credential = security_credential
-        if command_id is not None:
-            self.command_id = command_id
-        if transaction_id is not None:
-            self.transaction_id = transaction_id
-        if amount is not None:
-            self.amount = amount
-        if receiver_party is not None:
-            self.receiver_party = receiver_party
-        if receiver_identifier_type is not None:
-            self.receiver_identifier_type = receiver_identifier_type
-        if result_url is not None:
-            self.result_url = result_url
-        if queue_time_out_url is not None:
-            self.queue_time_out_url = queue_time_out_url
-        if remarks is not None:
-            self.remarks = remarks
+        self.initiator = initiator
+        self.security_credential = security_credential
+        self.command_id = command_id
+        self.transaction_id = transaction_id
+        self.amount = amount
+        self.receiver_party = receiver_party
+        self.receiver_identifier_type = receiver_identifier_type
+        self.result_url = result_url
+        self.queue_time_out_url = queue_time_out_url
+        self.remarks = remarks
         if occasion is not None:
             self.occasion = occasion
 
@@ -112,6 +102,8 @@ class TransactionReversalRequest(object):
         :param initiator: The initiator of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if initiator is None:
+            raise ValueError("Invalid value for `initiator`, must not be `None`")  # noqa: E501
 
         self._initiator = initiator
 
@@ -135,6 +127,8 @@ class TransactionReversalRequest(object):
         :param security_credential: The security_credential of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if security_credential is None:
+            raise ValueError("Invalid value for `security_credential`, must not be `None`")  # noqa: E501
 
         self._security_credential = security_credential
 
@@ -158,6 +152,8 @@ class TransactionReversalRequest(object):
         :param command_id: The command_id of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
         allowed_values = ["TransactionReversal"]  # noqa: E501
         if command_id not in allowed_values:
             raise ValueError(
@@ -187,6 +183,8 @@ class TransactionReversalRequest(object):
         :param transaction_id: The transaction_id of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if transaction_id is None:
+            raise ValueError("Invalid value for `transaction_id`, must not be `None`")  # noqa: E501
 
         self._transaction_id = transaction_id
 
@@ -210,6 +208,8 @@ class TransactionReversalRequest(object):
         :param amount: The amount of this TransactionReversalRequest.  # noqa: E501
         :type: int
         """
+        if amount is None:
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
 
@@ -233,6 +233,8 @@ class TransactionReversalRequest(object):
         :param receiver_party: The receiver_party of this TransactionReversalRequest.  # noqa: E501
         :type: int
         """
+        if receiver_party is None:
+            raise ValueError("Invalid value for `receiver_party`, must not be `None`")  # noqa: E501
 
         self._receiver_party = receiver_party
 
@@ -256,6 +258,8 @@ class TransactionReversalRequest(object):
         :param receiver_identifier_type: The receiver_identifier_type of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if receiver_identifier_type is None:
+            raise ValueError("Invalid value for `receiver_identifier_type`, must not be `None`")  # noqa: E501
 
         self._receiver_identifier_type = receiver_identifier_type
 
@@ -279,6 +283,8 @@ class TransactionReversalRequest(object):
         :param result_url: The result_url of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if result_url is None:
+            raise ValueError("Invalid value for `result_url`, must not be `None`")  # noqa: E501
 
         self._result_url = result_url
 
@@ -302,6 +308,8 @@ class TransactionReversalRequest(object):
         :param queue_time_out_url: The queue_time_out_url of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if queue_time_out_url is None:
+            raise ValueError("Invalid value for `queue_time_out_url`, must not be `None`")  # noqa: E501
 
         self._queue_time_out_url = queue_time_out_url
 
@@ -325,6 +333,8 @@ class TransactionReversalRequest(object):
         :param remarks: The remarks of this TransactionReversalRequest.  # noqa: E501
         :type: str
         """
+        if remarks is None:
+            raise ValueError("Invalid value for `remarks`, must not be `None`")  # noqa: E501
 
         self._remarks = remarks
 

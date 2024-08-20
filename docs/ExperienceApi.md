@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**mpesa_transactionstatus_v1_query_post**](ExperienceApi.md#mpesa_transactionstatus_v1_query_post) | **POST** /mpesa/transactionstatus/v1/query | Query the Transaction Status of an M-Pesa Transaction
 
 # **mpesa_accountbalance_v1_query_post**
-> AccountBalanceQueryResponse mpesa_accountbalance_v1_query_post(body=body)
+> AccountBalanceQueryResponse mpesa_accountbalance_v1_query_post(body)
 
 Make an Account Balance query
 
@@ -25,11 +25,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.ExperienceApi(mpesa_client.ApiClient(configuration))
-body = mpesa_client.AccountBalanceQueryRequest() # AccountBalanceQueryRequest |  (optional)
+body = mpesa_client.AccountBalanceQueryRequest() # AccountBalanceQueryRequest | 
 
 try:
     # Make an Account Balance query
-    api_response = api_instance.mpesa_accountbalance_v1_query_post(body=body)
+    api_response = api_instance.mpesa_accountbalance_v1_query_post(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExperienceApi->mpesa_accountbalance_v1_query_post: %s\n" % e)
@@ -39,7 +39,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AccountBalanceQueryRequest**](AccountBalanceQueryRequest.md)|  | [optional] 
+ **body** | [**AccountBalanceQueryRequest**](AccountBalanceQueryRequest.md)|  | 
 
 ### Return type
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_reversal_v1_request_post**
-> TransactionReversalResponse mpesa_reversal_v1_request_post(body=body)
+> TransactionReversalResponse mpesa_reversal_v1_request_post(body)
 
 Reverse an M-Pesa Transaction
 
@@ -72,11 +72,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.ExperienceApi(mpesa_client.ApiClient(configuration))
-body = mpesa_client.TransactionReversalRequest() # TransactionReversalRequest |  (optional)
+body = mpesa_client.TransactionReversalRequest() # TransactionReversalRequest | 
 
 try:
     # Reverse an M-Pesa Transaction
-    api_response = api_instance.mpesa_reversal_v1_request_post(body=body)
+    api_response = api_instance.mpesa_reversal_v1_request_post(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExperienceApi->mpesa_reversal_v1_request_post: %s\n" % e)
@@ -86,7 +86,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TransactionReversalRequest**](TransactionReversalRequest.md)|  | [optional] 
+ **body** | [**TransactionReversalRequest**](TransactionReversalRequest.md)|  | 
 
 ### Return type
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_stkpushquery_v1_query_post**
-> StkPushQueryResponse mpesa_stkpushquery_v1_query_post(body=body)
+> StkPushQueryResponse mpesa_stkpushquery_v1_query_post(body)
 
 Query the status of a Lipa na M-Pesa Online Payment
 
@@ -119,11 +119,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.ExperienceApi(mpesa_client.ApiClient(configuration))
-body = mpesa_client.StkPushQueryRequest() # StkPushQueryRequest |  (optional)
+body = mpesa_client.StkPushQueryRequest() # StkPushQueryRequest | 
 
 try:
     # Query the status of a Lipa na M-Pesa Online Payment
-    api_response = api_instance.mpesa_stkpushquery_v1_query_post(body=body)
+    api_response = api_instance.mpesa_stkpushquery_v1_query_post(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExperienceApi->mpesa_stkpushquery_v1_query_post: %s\n" % e)
@@ -133,7 +133,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**StkPushQueryRequest**](StkPushQueryRequest.md)|  | [optional] 
+ **body** | [**StkPushQueryRequest**](StkPushQueryRequest.md)|  | 
 
 ### Return type
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_transactionstatus_v1_query_post**
-> TransactionStatusQueryResponse mpesa_transactionstatus_v1_query_post(body=body)
+> TransactionStatusQueryResponse mpesa_transactionstatus_v1_query_post(body)
 
 Query the Transaction Status of an M-Pesa Transaction
 
@@ -166,11 +166,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.ExperienceApi(mpesa_client.ApiClient(configuration))
-body = mpesa_client.TransactionStatusQueryRequest() # TransactionStatusQueryRequest |  (optional)
+body = mpesa_client.TransactionStatusQueryRequest() # TransactionStatusQueryRequest | 
 
 try:
     # Query the Transaction Status of an M-Pesa Transaction
-    api_response = api_instance.mpesa_transactionstatus_v1_query_post(body=body)
+    api_response = api_instance.mpesa_transactionstatus_v1_query_post(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExperienceApi->mpesa_transactionstatus_v1_query_post: %s\n" % e)
@@ -180,7 +180,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**TransactionStatusQueryRequest**](TransactionStatusQueryRequest.md)|  | [optional] 
+ **body** | [**TransactionStatusQueryRequest**](TransactionStatusQueryRequest.md)|  | 
 
 ### Return type
 

@@ -54,11 +54,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.DisbursementApi(mpesa_client.ApiClient(configuration))
-body = mpesa_client.B2CPaymentRequest() # B2CPaymentRequest |  (optional)
+body = mpesa_client.B2CPaymentRequest() # B2CPaymentRequest | 
 
 try:
     # Make a B2C Payment Request
-    api_response = api_instance.mpesa_b2c_v1_paymentrequest_post(body=body)
+    api_response = api_instance.mpesa_b2c_v1_paymentrequest_post(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DisbursementApi->mpesa_b2c_v1_paymentrequest_post: %s\n" % e)
@@ -96,7 +96,6 @@ Class | Method | HTTP request | Description
  - [OAuthAccessTokenResponse](docs/OAuthAccessTokenResponse.md)
  - [StkPushQueryRequest](docs/StkPushQueryRequest.md)
  - [StkPushQueryResponse](docs/StkPushQueryResponse.md)
- - [StkPushRequest](docs/StkPushRequest.md)
  - [StkPushResponse](docs/StkPushResponse.md)
  - [TransactionReversalRequest](docs/TransactionReversalRequest.md)
  - [TransactionReversalResponse](docs/TransactionReversalResponse.md)

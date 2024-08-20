@@ -51,16 +51,11 @@ class C2BPaymentSimulationRequest(object):
         self._msisdn = None
         self._bill_ref_number = None
         self.discriminator = None
-        if short_code is not None:
-            self.short_code = short_code
-        if command_id is not None:
-            self.command_id = command_id
-        if amount is not None:
-            self.amount = amount
-        if msisdn is not None:
-            self.msisdn = msisdn
-        if bill_ref_number is not None:
-            self.bill_ref_number = bill_ref_number
+        self.short_code = short_code
+        self.command_id = command_id
+        self.amount = amount
+        self.msisdn = msisdn
+        self.bill_ref_number = bill_ref_number
 
     @property
     def short_code(self):
@@ -80,6 +75,8 @@ class C2BPaymentSimulationRequest(object):
         :param short_code: The short_code of this C2BPaymentSimulationRequest.  # noqa: E501
         :type: str
         """
+        if short_code is None:
+            raise ValueError("Invalid value for `short_code`, must not be `None`")  # noqa: E501
 
         self._short_code = short_code
 
@@ -101,6 +98,8 @@ class C2BPaymentSimulationRequest(object):
         :param command_id: The command_id of this C2BPaymentSimulationRequest.  # noqa: E501
         :type: str
         """
+        if command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
 
         self._command_id = command_id
 
@@ -122,6 +121,8 @@ class C2BPaymentSimulationRequest(object):
         :param amount: The amount of this C2BPaymentSimulationRequest.  # noqa: E501
         :type: int
         """
+        if amount is None:
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
 
@@ -143,6 +144,8 @@ class C2BPaymentSimulationRequest(object):
         :param msisdn: The msisdn of this C2BPaymentSimulationRequest.  # noqa: E501
         :type: str
         """
+        if msisdn is None:
+            raise ValueError("Invalid value for `msisdn`, must not be `None`")  # noqa: E501
 
         self._msisdn = msisdn
 
@@ -164,6 +167,8 @@ class C2BPaymentSimulationRequest(object):
         :param bill_ref_number: The bill_ref_number of this C2BPaymentSimulationRequest.  # noqa: E501
         :type: str
         """
+        if bill_ref_number is None:
+            raise ValueError("Invalid value for `bill_ref_number`, must not be `None`")  # noqa: E501
 
         self._bill_ref_number = bill_ref_number
 

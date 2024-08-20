@@ -48,14 +48,10 @@ class StkPushQueryRequest(object):
         self._timestamp = None
         self._checkout_request_id = None
         self.discriminator = None
-        if business_short_code is not None:
-            self.business_short_code = business_short_code
-        if password is not None:
-            self.password = password
-        if timestamp is not None:
-            self.timestamp = timestamp
-        if checkout_request_id is not None:
-            self.checkout_request_id = checkout_request_id
+        self.business_short_code = business_short_code
+        self.password = password
+        self.timestamp = timestamp
+        self.checkout_request_id = checkout_request_id
 
     @property
     def business_short_code(self):
@@ -77,6 +73,8 @@ class StkPushQueryRequest(object):
         :param business_short_code: The business_short_code of this StkPushQueryRequest.  # noqa: E501
         :type: int
         """
+        if business_short_code is None:
+            raise ValueError("Invalid value for `business_short_code`, must not be `None`")  # noqa: E501
 
         self._business_short_code = business_short_code
 
@@ -100,6 +98,8 @@ class StkPushQueryRequest(object):
         :param password: The password of this StkPushQueryRequest.  # noqa: E501
         :type: str
         """
+        if password is None:
+            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
 
@@ -123,6 +123,8 @@ class StkPushQueryRequest(object):
         :param timestamp: The timestamp of this StkPushQueryRequest.  # noqa: E501
         :type: str
         """
+        if timestamp is None:
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
 
@@ -146,6 +148,8 @@ class StkPushQueryRequest(object):
         :param checkout_request_id: The checkout_request_id of this StkPushQueryRequest.  # noqa: E501
         :type: str
         """
+        if checkout_request_id is None:
+            raise ValueError("Invalid value for `checkout_request_id`, must not be `None`")  # noqa: E501
 
         self._checkout_request_id = checkout_request_id
 

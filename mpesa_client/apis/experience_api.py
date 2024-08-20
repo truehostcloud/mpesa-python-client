@@ -32,37 +32,37 @@ class ExperienceApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def mpesa_accountbalance_v1_query_post(self, **kwargs):  # noqa: E501
+    def mpesa_accountbalance_v1_query_post(self, body, **kwargs):  # noqa: E501
         """Make an Account Balance query  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_accountbalance_v1_query_post(async_req=True)
+        >>> thread = api.mpesa_accountbalance_v1_query_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param AccountBalanceQueryRequest body:
+        :param AccountBalanceQueryRequest body: (required)
         :return: AccountBalanceQueryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_accountbalance_v1_query_post_with_http_info(**kwargs)  # noqa: E501
+            return self.mpesa_accountbalance_v1_query_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_accountbalance_v1_query_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.mpesa_accountbalance_v1_query_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_accountbalance_v1_query_post_with_http_info(self, **kwargs):  # noqa: E501
+    def mpesa_accountbalance_v1_query_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Make an Account Balance query  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_accountbalance_v1_query_post_with_http_info(async_req=True)
+        >>> thread = api.mpesa_accountbalance_v1_query_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param AccountBalanceQueryRequest body:
+        :param AccountBalanceQueryRequest body: (required)
         :return: AccountBalanceQueryResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -83,6 +83,10 @@ class ExperienceApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_accountbalance_v1_query_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -125,37 +129,37 @@ class ExperienceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mpesa_reversal_v1_request_post(self, **kwargs):  # noqa: E501
+    def mpesa_reversal_v1_request_post(self, body, **kwargs):  # noqa: E501
         """Reverse an M-Pesa Transaction  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_reversal_v1_request_post(async_req=True)
+        >>> thread = api.mpesa_reversal_v1_request_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param TransactionReversalRequest body:
+        :param TransactionReversalRequest body: (required)
         :return: TransactionReversalResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_reversal_v1_request_post_with_http_info(**kwargs)  # noqa: E501
+            return self.mpesa_reversal_v1_request_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_reversal_v1_request_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.mpesa_reversal_v1_request_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_reversal_v1_request_post_with_http_info(self, **kwargs):  # noqa: E501
+    def mpesa_reversal_v1_request_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Reverse an M-Pesa Transaction  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_reversal_v1_request_post_with_http_info(async_req=True)
+        >>> thread = api.mpesa_reversal_v1_request_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param TransactionReversalRequest body:
+        :param TransactionReversalRequest body: (required)
         :return: TransactionReversalResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -176,6 +180,10 @@ class ExperienceApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_reversal_v1_request_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -218,37 +226,37 @@ class ExperienceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mpesa_stkpushquery_v1_query_post(self, **kwargs):  # noqa: E501
+    def mpesa_stkpushquery_v1_query_post(self, body, **kwargs):  # noqa: E501
         """Query the status of a Lipa na M-Pesa Online Payment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_stkpushquery_v1_query_post(async_req=True)
+        >>> thread = api.mpesa_stkpushquery_v1_query_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param StkPushQueryRequest body:
+        :param StkPushQueryRequest body: (required)
         :return: StkPushQueryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_stkpushquery_v1_query_post_with_http_info(**kwargs)  # noqa: E501
+            return self.mpesa_stkpushquery_v1_query_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_stkpushquery_v1_query_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.mpesa_stkpushquery_v1_query_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_stkpushquery_v1_query_post_with_http_info(self, **kwargs):  # noqa: E501
+    def mpesa_stkpushquery_v1_query_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Query the status of a Lipa na M-Pesa Online Payment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_stkpushquery_v1_query_post_with_http_info(async_req=True)
+        >>> thread = api.mpesa_stkpushquery_v1_query_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param StkPushQueryRequest body:
+        :param StkPushQueryRequest body: (required)
         :return: StkPushQueryResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -269,6 +277,10 @@ class ExperienceApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_stkpushquery_v1_query_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -311,37 +323,37 @@ class ExperienceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mpesa_transactionstatus_v1_query_post(self, **kwargs):  # noqa: E501
+    def mpesa_transactionstatus_v1_query_post(self, body, **kwargs):  # noqa: E501
         """Query the Transaction Status of an M-Pesa Transaction  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_transactionstatus_v1_query_post(async_req=True)
+        >>> thread = api.mpesa_transactionstatus_v1_query_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param TransactionStatusQueryRequest body:
+        :param TransactionStatusQueryRequest body: (required)
         :return: TransactionStatusQueryResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_transactionstatus_v1_query_post_with_http_info(**kwargs)  # noqa: E501
+            return self.mpesa_transactionstatus_v1_query_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_transactionstatus_v1_query_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.mpesa_transactionstatus_v1_query_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_transactionstatus_v1_query_post_with_http_info(self, **kwargs):  # noqa: E501
+    def mpesa_transactionstatus_v1_query_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Query the Transaction Status of an M-Pesa Transaction  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_transactionstatus_v1_query_post_with_http_info(async_req=True)
+        >>> thread = api.mpesa_transactionstatus_v1_query_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param TransactionStatusQueryRequest body:
+        :param TransactionStatusQueryRequest body: (required)
         :return: TransactionStatusQueryResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -362,6 +374,10 @@ class ExperienceApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_transactionstatus_v1_query_post`")  # noqa: E501
 
         collection_formats = {}
 

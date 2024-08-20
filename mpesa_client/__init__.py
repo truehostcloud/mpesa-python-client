@@ -36,7 +36,6 @@ from mpesa_client.models.c2_burl_registration_response import C2BURLRegistration
 from mpesa_client.models.o_auth_access_token_response import OAuthAccessTokenResponse
 from mpesa_client.models.stk_push_query_request import StkPushQueryRequest
 from mpesa_client.models.stk_push_query_response import StkPushQueryResponse
-from mpesa_client.models.stk_push_request import StkPushRequest
 from mpesa_client.models.stk_push_response import StkPushResponse
 from mpesa_client.models.transaction_reversal_request import TransactionReversalRequest
 from mpesa_client.models.transaction_reversal_response import TransactionReversalResponse

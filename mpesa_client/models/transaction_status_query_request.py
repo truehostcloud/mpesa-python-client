@@ -66,24 +66,15 @@ class TransactionStatusQueryRequest(object):
         self._remarks = None
         self._occasion = None
         self.discriminator = None
-        if initiator is not None:
-            self.initiator = initiator
-        if security_credential is not None:
-            self.security_credential = security_credential
-        if command_id is not None:
-            self.command_id = command_id
-        if transaction_id is not None:
-            self.transaction_id = transaction_id
-        if party_a is not None:
-            self.party_a = party_a
-        if identifier_type is not None:
-            self.identifier_type = identifier_type
-        if result_url is not None:
-            self.result_url = result_url
-        if queue_time_out_url is not None:
-            self.queue_time_out_url = queue_time_out_url
-        if remarks is not None:
-            self.remarks = remarks
+        self.initiator = initiator
+        self.security_credential = security_credential
+        self.command_id = command_id
+        self.transaction_id = transaction_id
+        self.party_a = party_a
+        self.identifier_type = identifier_type
+        self.result_url = result_url
+        self.queue_time_out_url = queue_time_out_url
+        self.remarks = remarks
         if occasion is not None:
             self.occasion = occasion
 
@@ -107,6 +98,8 @@ class TransactionStatusQueryRequest(object):
         :param initiator: The initiator of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if initiator is None:
+            raise ValueError("Invalid value for `initiator`, must not be `None`")  # noqa: E501
 
         self._initiator = initiator
 
@@ -130,6 +123,8 @@ class TransactionStatusQueryRequest(object):
         :param security_credential: The security_credential of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if security_credential is None:
+            raise ValueError("Invalid value for `security_credential`, must not be `None`")  # noqa: E501
 
         self._security_credential = security_credential
 
@@ -153,6 +148,8 @@ class TransactionStatusQueryRequest(object):
         :param command_id: The command_id of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
         allowed_values = ["TransactionStatusQuery"]  # noqa: E501
         if command_id not in allowed_values:
             raise ValueError(
@@ -182,6 +179,8 @@ class TransactionStatusQueryRequest(object):
         :param transaction_id: The transaction_id of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if transaction_id is None:
+            raise ValueError("Invalid value for `transaction_id`, must not be `None`")  # noqa: E501
 
         self._transaction_id = transaction_id
 
@@ -205,6 +204,8 @@ class TransactionStatusQueryRequest(object):
         :param party_a: The party_a of this TransactionStatusQueryRequest.  # noqa: E501
         :type: int
         """
+        if party_a is None:
+            raise ValueError("Invalid value for `party_a`, must not be `None`")  # noqa: E501
 
         self._party_a = party_a
 
@@ -228,6 +229,8 @@ class TransactionStatusQueryRequest(object):
         :param identifier_type: The identifier_type of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if identifier_type is None:
+            raise ValueError("Invalid value for `identifier_type`, must not be `None`")  # noqa: E501
 
         self._identifier_type = identifier_type
 
@@ -251,6 +254,8 @@ class TransactionStatusQueryRequest(object):
         :param result_url: The result_url of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if result_url is None:
+            raise ValueError("Invalid value for `result_url`, must not be `None`")  # noqa: E501
 
         self._result_url = result_url
 
@@ -274,6 +279,8 @@ class TransactionStatusQueryRequest(object):
         :param queue_time_out_url: The queue_time_out_url of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if queue_time_out_url is None:
+            raise ValueError("Invalid value for `queue_time_out_url`, must not be `None`")  # noqa: E501
 
         self._queue_time_out_url = queue_time_out_url
 
@@ -297,6 +304,8 @@ class TransactionStatusQueryRequest(object):
         :param remarks: The remarks of this TransactionStatusQueryRequest.  # noqa: E501
         :type: str
         """
+        if remarks is None:
+            raise ValueError("Invalid value for `remarks`, must not be `None`")  # noqa: E501
 
         self._remarks = remarks
 

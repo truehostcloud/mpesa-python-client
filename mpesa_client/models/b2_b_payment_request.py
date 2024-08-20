@@ -72,30 +72,18 @@ class B2BPaymentRequest(object):
         self._queue_time_out_url = None
         self._result_url = None
         self.discriminator = None
-        if initiator is not None:
-            self.initiator = initiator
-        if security_credential is not None:
-            self.security_credential = security_credential
-        if command_id is not None:
-            self.command_id = command_id
-        if sender_identifier_type is not None:
-            self.sender_identifier_type = sender_identifier_type
-        if receiver_identifier_type is not None:
-            self.receiver_identifier_type = receiver_identifier_type
-        if amount is not None:
-            self.amount = amount
-        if party_a is not None:
-            self.party_a = party_a
-        if party_b is not None:
-            self.party_b = party_b
-        if account_reference is not None:
-            self.account_reference = account_reference
-        if remarks is not None:
-            self.remarks = remarks
-        if queue_time_out_url is not None:
-            self.queue_time_out_url = queue_time_out_url
-        if result_url is not None:
-            self.result_url = result_url
+        self.initiator = initiator
+        self.security_credential = security_credential
+        self.command_id = command_id
+        self.sender_identifier_type = sender_identifier_type
+        self.receiver_identifier_type = receiver_identifier_type
+        self.amount = amount
+        self.party_a = party_a
+        self.party_b = party_b
+        self.account_reference = account_reference
+        self.remarks = remarks
+        self.queue_time_out_url = queue_time_out_url
+        self.result_url = result_url
 
     @property
     def initiator(self):
@@ -117,6 +105,8 @@ class B2BPaymentRequest(object):
         :param initiator: The initiator of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if initiator is None:
+            raise ValueError("Invalid value for `initiator`, must not be `None`")  # noqa: E501
 
         self._initiator = initiator
 
@@ -140,6 +130,8 @@ class B2BPaymentRequest(object):
         :param security_credential: The security_credential of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if security_credential is None:
+            raise ValueError("Invalid value for `security_credential`, must not be `None`")  # noqa: E501
 
         self._security_credential = security_credential
 
@@ -163,6 +155,8 @@ class B2BPaymentRequest(object):
         :param command_id: The command_id of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if command_id is None:
+            raise ValueError("Invalid value for `command_id`, must not be `None`")  # noqa: E501
         allowed_values = ["BusinessPayBill", "BusinessPayToBulk"]  # noqa: E501
         if command_id not in allowed_values:
             raise ValueError(
@@ -192,6 +186,8 @@ class B2BPaymentRequest(object):
         :param sender_identifier_type: The sender_identifier_type of this B2BPaymentRequest.  # noqa: E501
         :type: int
         """
+        if sender_identifier_type is None:
+            raise ValueError("Invalid value for `sender_identifier_type`, must not be `None`")  # noqa: E501
         allowed_values = [4]  # noqa: E501
         if sender_identifier_type not in allowed_values:
             raise ValueError(
@@ -221,6 +217,8 @@ class B2BPaymentRequest(object):
         :param receiver_identifier_type: The receiver_identifier_type of this B2BPaymentRequest.  # noqa: E501
         :type: int
         """
+        if receiver_identifier_type is None:
+            raise ValueError("Invalid value for `receiver_identifier_type`, must not be `None`")  # noqa: E501
         allowed_values = [4]  # noqa: E501
         if receiver_identifier_type not in allowed_values:
             raise ValueError(
@@ -250,6 +248,8 @@ class B2BPaymentRequest(object):
         :param amount: The amount of this B2BPaymentRequest.  # noqa: E501
         :type: int
         """
+        if amount is None:
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
 
@@ -273,6 +273,8 @@ class B2BPaymentRequest(object):
         :param party_a: The party_a of this B2BPaymentRequest.  # noqa: E501
         :type: int
         """
+        if party_a is None:
+            raise ValueError("Invalid value for `party_a`, must not be `None`")  # noqa: E501
 
         self._party_a = party_a
 
@@ -296,6 +298,8 @@ class B2BPaymentRequest(object):
         :param party_b: The party_b of this B2BPaymentRequest.  # noqa: E501
         :type: int
         """
+        if party_b is None:
+            raise ValueError("Invalid value for `party_b`, must not be `None`")  # noqa: E501
 
         self._party_b = party_b
 
@@ -319,6 +323,8 @@ class B2BPaymentRequest(object):
         :param account_reference: The account_reference of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if account_reference is None:
+            raise ValueError("Invalid value for `account_reference`, must not be `None`")  # noqa: E501
 
         self._account_reference = account_reference
 
@@ -342,6 +348,8 @@ class B2BPaymentRequest(object):
         :param remarks: The remarks of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if remarks is None:
+            raise ValueError("Invalid value for `remarks`, must not be `None`")  # noqa: E501
 
         self._remarks = remarks
 
@@ -365,6 +373,8 @@ class B2BPaymentRequest(object):
         :param queue_time_out_url: The queue_time_out_url of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if queue_time_out_url is None:
+            raise ValueError("Invalid value for `queue_time_out_url`, must not be `None`")  # noqa: E501
 
         self._queue_time_out_url = queue_time_out_url
 
@@ -388,6 +398,8 @@ class B2BPaymentRequest(object):
         :param result_url: The result_url of this B2BPaymentRequest.  # noqa: E501
         :type: str
         """
+        if result_url is None:
+            raise ValueError("Invalid value for `result_url`, must not be `None`")  # noqa: E501
 
         self._result_url = result_url
 

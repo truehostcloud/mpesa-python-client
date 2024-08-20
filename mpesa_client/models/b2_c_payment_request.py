@@ -29,69 +29,60 @@ class B2CPaymentRequest(object):
     """
     swagger_types = {
         'initiator_name': 'str',
-        'security_credential': 'str',
-        'command_id': 'str',
+        'transaction_type': 'str',
         'amount': 'int',
         'party_a': 'int',
-        'party_b': 'str',
-        'remarks': 'str',
-        'queue_time_out_url': 'str',
-        'result_url': 'str',
-        'occasion': 'str'
+        'party_b': 'int',
+        'phone_number': 'int',
+        'call_back_url': 'str',
+        'account_reference': 'str',
+        'transaction_desc': 'str'
     }
 
     attribute_map = {
         'initiator_name': 'InitiatorName',
-        'security_credential': 'SecurityCredential',
-        'command_id': 'CommandID',
+        'transaction_type': 'TransactionType',
         'amount': 'Amount',
         'party_a': 'PartyA',
         'party_b': 'PartyB',
-        'remarks': 'Remarks',
-        'queue_time_out_url': 'QueueTimeOutURL',
-        'result_url': 'ResultURL',
-        'occasion': 'Occasion'
+        'phone_number': 'PhoneNumber',
+        'call_back_url': 'CallBackURL',
+        'account_reference': 'AccountReference',
+        'transaction_desc': 'TransactionDesc'
     }
 
-    def __init__(self, initiator_name=None, security_credential=None, command_id=None, amount=None, party_a=None, party_b=None, remarks=None, queue_time_out_url=None, result_url=None, occasion=None):  # noqa: E501
+    def __init__(self, initiator_name=None, transaction_type=None, amount=None, party_a=None, party_b=None, phone_number=None, call_back_url=None, account_reference=None, transaction_desc=None):  # noqa: E501
         """B2CPaymentRequest - a model defined in Swagger"""  # noqa: E501
         self._initiator_name = None
-        self._security_credential = None
-        self._command_id = None
+        self._transaction_type = None
         self._amount = None
         self._party_a = None
         self._party_b = None
-        self._remarks = None
-        self._queue_time_out_url = None
-        self._result_url = None
-        self._occasion = None
+        self._phone_number = None
+        self._call_back_url = None
+        self._account_reference = None
+        self._transaction_desc = None
         self.discriminator = None
-        if initiator_name is not None:
-            self.initiator_name = initiator_name
-        if security_credential is not None:
-            self.security_credential = security_credential
-        if command_id is not None:
-            self.command_id = command_id
-        if amount is not None:
-            self.amount = amount
-        if party_a is not None:
-            self.party_a = party_a
-        if party_b is not None:
-            self.party_b = party_b
-        if remarks is not None:
-            self.remarks = remarks
-        if queue_time_out_url is not None:
-            self.queue_time_out_url = queue_time_out_url
-        if result_url is not None:
-            self.result_url = result_url
-        if occasion is not None:
-            self.occasion = occasion
+        self.initiator_name = initiator_name
+        if transaction_type is not None:
+            self.transaction_type = transaction_type
+        self.amount = amount
+        self.party_a = party_a
+        self.party_b = party_b
+        if phone_number is not None:
+            self.phone_number = phone_number
+        if call_back_url is not None:
+            self.call_back_url = call_back_url
+        if account_reference is not None:
+            self.account_reference = account_reference
+        if transaction_desc is not None:
+            self.transaction_desc = transaction_desc
 
     @property
     def initiator_name(self):
         """Gets the initiator_name of this B2CPaymentRequest.  # noqa: E501
 
-        This is an API user created by the Business Administrator of the M-PESA Bulk disbursement account that is active and authorized to initiate B2C transactions via API.  # noqa: E501
+        This is the Timestamp of the transaction, normally in the format of YEAR+MONTH+DATE+HOUR+MINUTE+SECOND (YYYYMMDDHHMMSS). Each part should be at least two digits, apart from the year which takes four digits.  # noqa: E501
 
         :return: The initiator_name of this B2CPaymentRequest.  # noqa: E501
         :rtype: str
@@ -102,71 +93,50 @@ class B2CPaymentRequest(object):
     def initiator_name(self, initiator_name):
         """Sets the initiator_name of this B2CPaymentRequest.
 
-        This is an API user created by the Business Administrator of the M-PESA Bulk disbursement account that is active and authorized to initiate B2C transactions via API.  # noqa: E501
+        This is the Timestamp of the transaction, normally in the format of YEAR+MONTH+DATE+HOUR+MINUTE+SECOND (YYYYMMDDHHMMSS). Each part should be at least two digits, apart from the year which takes four digits.  # noqa: E501
 
         :param initiator_name: The initiator_name of this B2CPaymentRequest.  # noqa: E501
         :type: str
         """
+        if initiator_name is None:
+            raise ValueError("Invalid value for `initiator_name`, must not be `None`")  # noqa: E501
 
         self._initiator_name = initiator_name
 
     @property
-    def security_credential(self):
-        """Gets the security_credential of this B2CPaymentRequest.  # noqa: E501
+    def transaction_type(self):
+        """Gets the transaction_type of this B2CPaymentRequest.  # noqa: E501
 
-        This is the value obtained after encrypting the API initiator password. The password on Sandbox has been provisioned on the simulator. However, on production the password is created when the user is being created on the M-PESA organization portal.  # noqa: E501
+        This is the transaction type to be used for the request. Only two types are allowed: CustomerPayBillOnline: This is a transaction where the customer is expected to pay a bill e.g. utility bill. CustomerBuyGoodsOnline: This is a transaction where the customer is expected to pay for goods e.g. a supermarket.   # noqa: E501
 
-        :return: The security_credential of this B2CPaymentRequest.  # noqa: E501
+        :return: The transaction_type of this B2CPaymentRequest.  # noqa: E501
         :rtype: str
         """
-        return self._security_credential
+        return self._transaction_type
 
-    @security_credential.setter
-    def security_credential(self, security_credential):
-        """Sets the security_credential of this B2CPaymentRequest.
+    @transaction_type.setter
+    def transaction_type(self, transaction_type):
+        """Sets the transaction_type of this B2CPaymentRequest.
 
-        This is the value obtained after encrypting the API initiator password. The password on Sandbox has been provisioned on the simulator. However, on production the password is created when the user is being created on the M-PESA organization portal.  # noqa: E501
+        This is the transaction type to be used for the request. Only two types are allowed: CustomerPayBillOnline: This is a transaction where the customer is expected to pay a bill e.g. utility bill. CustomerBuyGoodsOnline: This is a transaction where the customer is expected to pay for goods e.g. a supermarket.   # noqa: E501
 
-        :param security_credential: The security_credential of this B2CPaymentRequest.  # noqa: E501
+        :param transaction_type: The transaction_type of this B2CPaymentRequest.  # noqa: E501
         :type: str
         """
-
-        self._security_credential = security_credential
-
-    @property
-    def command_id(self):
-        """Gets the command_id of this B2CPaymentRequest.  # noqa: E501
-
-        This is a unique command that specifies B2C transaction type. SalaryPayment: This supports sending money to both registered and unregistered M-Pesa customers. BusinessPayment: This is a normal business to customer payment, supports only M-PESA registered customers. PromotionPayment: This is a promotional payment to customers. The M-PESA notification message is a congratulatory message. Supports only M-PESA registered customers.   # noqa: E501
-
-        :return: The command_id of this B2CPaymentRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._command_id
-
-    @command_id.setter
-    def command_id(self, command_id):
-        """Sets the command_id of this B2CPaymentRequest.
-
-        This is a unique command that specifies B2C transaction type. SalaryPayment: This supports sending money to both registered and unregistered M-Pesa customers. BusinessPayment: This is a normal business to customer payment, supports only M-PESA registered customers. PromotionPayment: This is a promotional payment to customers. The M-PESA notification message is a congratulatory message. Supports only M-PESA registered customers.   # noqa: E501
-
-        :param command_id: The command_id of this B2CPaymentRequest.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["SalaryPayment", "PromotionPayment", "BusinessPayment"]  # noqa: E501
-        if command_id not in allowed_values:
+        allowed_values = ["CustomerPayBillOnline", "CustomerBuyGoodsOnline"]  # noqa: E501
+        if transaction_type not in allowed_values:
             raise ValueError(
-                "Invalid value for `command_id` ({0}), must be one of {1}"  # noqa: E501
-                .format(command_id, allowed_values)
+                "Invalid value for `transaction_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(transaction_type, allowed_values)
             )
 
-        self._command_id = command_id
+        self._transaction_type = transaction_type
 
     @property
     def amount(self):
         """Gets the amount of this B2CPaymentRequest.  # noqa: E501
 
-        The amount of money being sent to the customer.  # noqa: E501
+        This is the Amount transacted normally a numeric value. Money that the customer pays to the Shortcode. Only whole numbers are supported.  # noqa: E501
 
         :return: The amount of this B2CPaymentRequest.  # noqa: E501
         :rtype: int
@@ -177,11 +147,13 @@ class B2CPaymentRequest(object):
     def amount(self, amount):
         """Sets the amount of this B2CPaymentRequest.
 
-        The amount of money being sent to the customer.  # noqa: E501
+        This is the Amount transacted normally a numeric value. Money that the customer pays to the Shortcode. Only whole numbers are supported.  # noqa: E501
 
         :param amount: The amount of this B2CPaymentRequest.  # noqa: E501
         :type: int
         """
+        if amount is None:
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
 
@@ -189,7 +161,7 @@ class B2CPaymentRequest(object):
     def party_a(self):
         """Gets the party_a of this B2CPaymentRequest.  # noqa: E501
 
-        This is the B2C organization shortcode from which the money is sent from.  # noqa: E501
+        The phone number sending money. The parameter expected is a Valid Safaricom Mobile Number that is M-PESA registered in the format 2547XXXXXXXX  # noqa: E501
 
         :return: The party_a of this B2CPaymentRequest.  # noqa: E501
         :rtype: int
@@ -200,11 +172,13 @@ class B2CPaymentRequest(object):
     def party_a(self, party_a):
         """Sets the party_a of this B2CPaymentRequest.
 
-        This is the B2C organization shortcode from which the money is sent from.  # noqa: E501
+        The phone number sending money. The parameter expected is a Valid Safaricom Mobile Number that is M-PESA registered in the format 2547XXXXXXXX  # noqa: E501
 
         :param party_a: The party_a of this B2CPaymentRequest.  # noqa: E501
         :type: int
         """
+        if party_a is None:
+            raise ValueError("Invalid value for `party_a`, must not be `None`")  # noqa: E501
 
         self._party_a = party_a
 
@@ -212,10 +186,10 @@ class B2CPaymentRequest(object):
     def party_b(self):
         """Gets the party_b of this B2CPaymentRequest.  # noqa: E501
 
-        This is the customer mobile number to receive the amount. - The number should have the country code (254) without the plus sign.  # noqa: E501
+        The organization shortcode receiving the funds. The parameter expected is a 5 to 7 digit Paybill number.  # noqa: E501
 
         :return: The party_b of this B2CPaymentRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._party_b
 
@@ -223,105 +197,107 @@ class B2CPaymentRequest(object):
     def party_b(self, party_b):
         """Sets the party_b of this B2CPaymentRequest.
 
-        This is the customer mobile number to receive the amount. - The number should have the country code (254) without the plus sign.  # noqa: E501
+        The organization shortcode receiving the funds. The parameter expected is a 5 to 7 digit Paybill number.  # noqa: E501
 
         :param party_b: The party_b of this B2CPaymentRequest.  # noqa: E501
-        :type: str
+        :type: int
         """
+        if party_b is None:
+            raise ValueError("Invalid value for `party_b`, must not be `None`")  # noqa: E501
 
         self._party_b = party_b
 
     @property
-    def remarks(self):
-        """Gets the remarks of this B2CPaymentRequest.  # noqa: E501
+    def phone_number(self):
+        """Gets the phone_number of this B2CPaymentRequest.  # noqa: E501
 
-        Any additional information to be associated with the transaction.  # noqa: E501
+        The Mobile Number to receive the STK Pin Prompt. This number can be the same as PartyA value above.  # noqa: E501
 
-        :return: The remarks of this B2CPaymentRequest.  # noqa: E501
-        :rtype: str
+        :return: The phone_number of this B2CPaymentRequest.  # noqa: E501
+        :rtype: int
         """
-        return self._remarks
+        return self._phone_number
 
-    @remarks.setter
-    def remarks(self, remarks):
-        """Sets the remarks of this B2CPaymentRequest.
+    @phone_number.setter
+    def phone_number(self, phone_number):
+        """Sets the phone_number of this B2CPaymentRequest.
 
-        Any additional information to be associated with the transaction.  # noqa: E501
+        The Mobile Number to receive the STK Pin Prompt. This number can be the same as PartyA value above.  # noqa: E501
 
-        :param remarks: The remarks of this B2CPaymentRequest.  # noqa: E501
-        :type: str
+        :param phone_number: The phone_number of this B2CPaymentRequest.  # noqa: E501
+        :type: int
         """
 
-        self._remarks = remarks
+        self._phone_number = phone_number
 
     @property
-    def queue_time_out_url(self):
-        """Gets the queue_time_out_url of this B2CPaymentRequest.  # noqa: E501
+    def call_back_url(self):
+        """Gets the call_back_url of this B2CPaymentRequest.  # noqa: E501
 
-        This is the URL to be specified in your request that will be used by API Proxy to send notification incase the payment request is timed out while awaiting processing in the queue.  # noqa: E501
+        A CallBack URL is a valid secure URL that is used to receive notifications from M-Pesa API. It is the endpoint to which the results will be sent by M-Pesa API.  # noqa: E501
 
-        :return: The queue_time_out_url of this B2CPaymentRequest.  # noqa: E501
+        :return: The call_back_url of this B2CPaymentRequest.  # noqa: E501
         :rtype: str
         """
-        return self._queue_time_out_url
+        return self._call_back_url
 
-    @queue_time_out_url.setter
-    def queue_time_out_url(self, queue_time_out_url):
-        """Sets the queue_time_out_url of this B2CPaymentRequest.
+    @call_back_url.setter
+    def call_back_url(self, call_back_url):
+        """Sets the call_back_url of this B2CPaymentRequest.
 
-        This is the URL to be specified in your request that will be used by API Proxy to send notification incase the payment request is timed out while awaiting processing in the queue.  # noqa: E501
+        A CallBack URL is a valid secure URL that is used to receive notifications from M-Pesa API. It is the endpoint to which the results will be sent by M-Pesa API.  # noqa: E501
 
-        :param queue_time_out_url: The queue_time_out_url of this B2CPaymentRequest.  # noqa: E501
+        :param call_back_url: The call_back_url of this B2CPaymentRequest.  # noqa: E501
         :type: str
         """
 
-        self._queue_time_out_url = queue_time_out_url
+        self._call_back_url = call_back_url
 
     @property
-    def result_url(self):
-        """Gets the result_url of this B2CPaymentRequest.  # noqa: E501
+    def account_reference(self):
+        """Gets the account_reference of this B2CPaymentRequest.  # noqa: E501
 
-        This is the URL to be specified in your request that will be used by M-PESA to send notification upon processing of the payment request.  # noqa: E501
+        This is an Alpha-Numeric parameter that is defined by your system as an Identifier of the transaction for the CustomerPayBillOnline transaction type. Along with the business name, this value is also displayed to the customer in the STK Pin Prompt message. Maximum of 12 characters.  # noqa: E501
 
-        :return: The result_url of this B2CPaymentRequest.  # noqa: E501
+        :return: The account_reference of this B2CPaymentRequest.  # noqa: E501
         :rtype: str
         """
-        return self._result_url
+        return self._account_reference
 
-    @result_url.setter
-    def result_url(self, result_url):
-        """Sets the result_url of this B2CPaymentRequest.
+    @account_reference.setter
+    def account_reference(self, account_reference):
+        """Sets the account_reference of this B2CPaymentRequest.
 
-        This is the URL to be specified in your request that will be used by M-PESA to send notification upon processing of the payment request.  # noqa: E501
+        This is an Alpha-Numeric parameter that is defined by your system as an Identifier of the transaction for the CustomerPayBillOnline transaction type. Along with the business name, this value is also displayed to the customer in the STK Pin Prompt message. Maximum of 12 characters.  # noqa: E501
 
-        :param result_url: The result_url of this B2CPaymentRequest.  # noqa: E501
+        :param account_reference: The account_reference of this B2CPaymentRequest.  # noqa: E501
         :type: str
         """
 
-        self._result_url = result_url
+        self._account_reference = account_reference
 
     @property
-    def occasion(self):
-        """Gets the occasion of this B2CPaymentRequest.  # noqa: E501
+    def transaction_desc(self):
+        """Gets the transaction_desc of this B2CPaymentRequest.  # noqa: E501
 
-        Any additional information to be associated with the transaction.  # noqa: E501
+        This is any additional information/comment that can be sent along with the request from your system. Maximum of 13 Characters.  # noqa: E501
 
-        :return: The occasion of this B2CPaymentRequest.  # noqa: E501
+        :return: The transaction_desc of this B2CPaymentRequest.  # noqa: E501
         :rtype: str
         """
-        return self._occasion
+        return self._transaction_desc
 
-    @occasion.setter
-    def occasion(self, occasion):
-        """Sets the occasion of this B2CPaymentRequest.
+    @transaction_desc.setter
+    def transaction_desc(self, transaction_desc):
+        """Sets the transaction_desc of this B2CPaymentRequest.
 
-        Any additional information to be associated with the transaction.  # noqa: E501
+        This is any additional information/comment that can be sent along with the request from your system. Maximum of 13 Characters.  # noqa: E501
 
-        :param occasion: The occasion of this B2CPaymentRequest.  # noqa: E501
+        :param transaction_desc: The transaction_desc of this B2CPaymentRequest.  # noqa: E501
         :type: str
         """
 
-        self._occasion = occasion
+        self._transaction_desc = transaction_desc
 
     def to_dict(self):
         """Returns the model properties as a dict"""

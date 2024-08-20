@@ -32,37 +32,37 @@ class DisbursementApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def mpesa_b2c_v1_paymentrequest_post(self, **kwargs):  # noqa: E501
+    def mpesa_b2c_v1_paymentrequest_post(self, body, **kwargs):  # noqa: E501
         """Make a B2C Payment Request  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_b2c_v1_paymentrequest_post(async_req=True)
+        >>> thread = api.mpesa_b2c_v1_paymentrequest_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param B2CPaymentRequest body:
+        :param B2CPaymentRequest body: (required)
         :return: B2CPaymentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_b2c_v1_paymentrequest_post_with_http_info(**kwargs)  # noqa: E501
+            return self.mpesa_b2c_v1_paymentrequest_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_b2c_v1_paymentrequest_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.mpesa_b2c_v1_paymentrequest_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_b2c_v1_paymentrequest_post_with_http_info(self, **kwargs):  # noqa: E501
+    def mpesa_b2c_v1_paymentrequest_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Make a B2C Payment Request  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_b2c_v1_paymentrequest_post_with_http_info(async_req=True)
+        >>> thread = api.mpesa_b2c_v1_paymentrequest_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param B2CPaymentRequest body:
+        :param B2CPaymentRequest body: (required)
         :return: B2CPaymentResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -83,6 +83,10 @@ class DisbursementApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_b2c_v1_paymentrequest_post`")  # noqa: E501
 
         collection_formats = {}
 
