@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**mpesa_b2c_v1_paymentrequest_post**](DisbursementApi.md#mpesa_b2c_v1_paymentrequest_post) | **POST** /mpesa/b2c/v1/paymentrequest | Make a B2C Payment Request
 
 # **mpesa_b2c_v1_paymentrequest_post**
-> mpesa_b2c_v1_paymentrequest_post(body=body)
+> B2CPaymentResponse mpesa_b2c_v1_paymentrequest_post(body=body)
 
 Make a B2C Payment Request
 
@@ -22,11 +22,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.DisbursementApi(mpesa_client.ApiClient(configuration))
-body = NULL # object |  (optional)
+body = mpesa_client.B2CPaymentRequest() # B2CPaymentRequest |  (optional)
 
 try:
     # Make a B2C Payment Request
-    api_instance.mpesa_b2c_v1_paymentrequest_post(body=body)
+    api_response = api_instance.mpesa_b2c_v1_paymentrequest_post(body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DisbursementApi->mpesa_b2c_v1_paymentrequest_post: %s\n" % e)
 ```
@@ -35,11 +36,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](object.md)|  | [optional] 
+ **body** | [**B2CPaymentRequest**](B2CPaymentRequest.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**B2CPaymentResponse**](B2CPaymentResponse.md)
 
 ### Authorization
 

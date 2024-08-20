@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**mpesa_stkpush_v1_processrequest_post**](PaymentsApi.md#mpesa_stkpush_v1_processrequest_post) | **POST** /mpesa/stkpush/v1/processrequest | Initiate a Lipa na M-Pesa Online Payment
 
 # **mpesa_b2b_v1_paymentrequest_post**
-> mpesa_b2b_v1_paymentrequest_post(body=body)
+> B2BPaymentResponse mpesa_b2b_v1_paymentrequest_post(body=body)
 
 Make a B2B Payment Request
 
@@ -25,11 +25,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.PaymentsApi(mpesa_client.ApiClient(configuration))
-body = NULL # object |  (optional)
+body = mpesa_client.B2BPaymentRequest() # B2BPaymentRequest |  (optional)
 
 try:
     # Make a B2B Payment Request
-    api_instance.mpesa_b2b_v1_paymentrequest_post(body=body)
+    api_response = api_instance.mpesa_b2b_v1_paymentrequest_post(body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentsApi->mpesa_b2b_v1_paymentrequest_post: %s\n" % e)
 ```
@@ -38,11 +39,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](object.md)|  | [optional] 
+ **body** | [**B2BPaymentRequest**](B2BPaymentRequest.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**B2BPaymentResponse**](B2BPaymentResponse.md)
 
 ### Authorization
 
@@ -56,7 +57,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_c2b_v1_registerurl_post**
-> mpesa_c2b_v1_registerurl_post(body=body)
+> C2BURLRegistrationResponse mpesa_c2b_v1_registerurl_post(body=body)
 
 Register C2B Confirmation and Validation URLs
 
@@ -71,11 +72,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.PaymentsApi(mpesa_client.ApiClient(configuration))
-body = NULL # object |  (optional)
+body = mpesa_client.C2BURLRegistrationRequest() # C2BURLRegistrationRequest |  (optional)
 
 try:
     # Register C2B Confirmation and Validation URLs
-    api_instance.mpesa_c2b_v1_registerurl_post(body=body)
+    api_response = api_instance.mpesa_c2b_v1_registerurl_post(body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentsApi->mpesa_c2b_v1_registerurl_post: %s\n" % e)
 ```
@@ -84,11 +86,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](object.md)|  | [optional] 
+ **body** | [**C2BURLRegistrationRequest**](C2BURLRegistrationRequest.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**C2BURLRegistrationResponse**](C2BURLRegistrationResponse.md)
 
 ### Authorization
 
@@ -102,7 +104,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_c2b_v1_simulate_post**
-> mpesa_c2b_v1_simulate_post(body=body)
+> C2BPaymentSimulationResponse mpesa_c2b_v1_simulate_post(body=body)
 
 Simulate a C2B Payment
 
@@ -117,11 +119,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.PaymentsApi(mpesa_client.ApiClient(configuration))
-body = NULL # object |  (optional)
+body = mpesa_client.C2BPaymentSimulationRequest() # C2BPaymentSimulationRequest |  (optional)
 
 try:
     # Simulate a C2B Payment
-    api_instance.mpesa_c2b_v1_simulate_post(body=body)
+    api_response = api_instance.mpesa_c2b_v1_simulate_post(body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentsApi->mpesa_c2b_v1_simulate_post: %s\n" % e)
 ```
@@ -130,11 +133,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](object.md)|  | [optional] 
+ **body** | [**C2BPaymentSimulationRequest**](C2BPaymentSimulationRequest.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**C2BPaymentSimulationResponse**](C2BPaymentSimulationResponse.md)
 
 ### Authorization
 
@@ -148,7 +151,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_stkpush_v1_processrequest_post**
-> mpesa_stkpush_v1_processrequest_post(body=body)
+> StkPushResponse mpesa_stkpush_v1_processrequest_post(body=body)
 
 Initiate a Lipa na M-Pesa Online Payment
 
@@ -163,11 +166,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.PaymentsApi(mpesa_client.ApiClient(configuration))
-body = NULL # object |  (optional)
+body = mpesa_client.StkPushRequest() # StkPushRequest |  (optional)
 
 try:
     # Initiate a Lipa na M-Pesa Online Payment
-    api_instance.mpesa_stkpush_v1_processrequest_post(body=body)
+    api_response = api_instance.mpesa_stkpush_v1_processrequest_post(body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentsApi->mpesa_stkpush_v1_processrequest_post: %s\n" % e)
 ```
@@ -176,11 +180,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](object.md)|  | [optional] 
+ **body** | [**StkPushRequest**](StkPushRequest.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**StkPushResponse**](StkPushResponse.md)
 
 ### Authorization
 

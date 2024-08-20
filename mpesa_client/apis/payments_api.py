@@ -41,8 +41,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param B2BPaymentRequest body:
+        :return: B2BPaymentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -62,8 +62,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param B2BPaymentRequest body:
+        :return: B2BPaymentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -117,7 +117,7 @@ class PaymentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='B2BPaymentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -134,8 +134,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param C2BURLRegistrationRequest body:
+        :return: C2BURLRegistrationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -155,8 +155,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param C2BURLRegistrationRequest body:
+        :return: C2BURLRegistrationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -210,7 +210,7 @@ class PaymentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='C2BURLRegistrationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -227,8 +227,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param C2BPaymentSimulationRequest body:
+        :return: C2BPaymentSimulationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -248,8 +248,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param C2BPaymentSimulationRequest body:
+        :return: C2BPaymentSimulationResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -303,7 +303,7 @@ class PaymentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='C2BPaymentSimulationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -320,8 +320,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param StkPushRequest body:
+        :return: StkPushResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -341,8 +341,8 @@ class PaymentsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param object body:
-        :return: None
+        :param StkPushRequest body:
+        :return: StkPushResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -396,7 +396,7 @@ class PaymentsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='StkPushResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**oauth_v1_generate_get**](SecurityApi.md#oauth_v1_generate_get) | **GET** /oauth/v1/generate | Generate an OAuth Access Token
 
 # **oauth_v1_generate_get**
-> oauth_v1_generate_get(grant_type=grant_type)
+> OAuthAccessTokenResponse oauth_v1_generate_get(grant_type=grant_type)
 
 Generate an OAuth Access Token
 
@@ -25,11 +25,12 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = mpesa_client.SecurityApi(mpesa_client.ApiClient(configuration))
-grant_type = 'grant_type_example' # str |  (optional)
+grant_type = 'client_credentials' # str |  (optional) (default to client_credentials)
 
 try:
     # Generate an OAuth Access Token
-    api_instance.oauth_v1_generate_get(grant_type=grant_type)
+    api_response = api_instance.oauth_v1_generate_get(grant_type=grant_type)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling SecurityApi->oauth_v1_generate_get: %s\n" % e)
 ```
@@ -38,11 +39,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type** | **str**|  | [optional] 
+ **grant_type** | **str**|  | [optional] [default to client_credentials]
 
 ### Return type
 
-void (empty response body)
+[**OAuthAccessTokenResponse**](OAuthAccessTokenResponse.md)
 
 ### Authorization
 
