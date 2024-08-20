@@ -289,8 +289,9 @@ paths:
 components:
   securitySchemes:
     bearerAuth:
-      type: http
-      scheme: bearer
+      type: apiKey
+      in: header
+      name: Authorization
     basicAuth:
       type: http
       scheme: basic

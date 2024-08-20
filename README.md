@@ -51,6 +51,11 @@ import mpesa_client
 from mpesa_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: bearerAuth
+configuration = mpesa_client.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = mpesa_client.DisbursementApi(mpesa_client.ApiClient(configuration))
@@ -112,6 +117,9 @@ Class | Method | HTTP request | Description
 
 ## bearerAuth
 
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 
 
 ## Author
