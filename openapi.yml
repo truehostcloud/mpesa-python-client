@@ -1,20 +1,11 @@
 openapi: 3.0.0
 info:
   title: Safaricom APIs
-  description: |-
-    M-Pesa API client for Daraja
+  description: M-Pesa API client for Daraja
   version: 1.0.0
 servers:
   - url: https://sandbox.safaricom.co.ke
   - url: https://api.safaricom.co.ke
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-    basicAuth:
-      type: http
-      scheme: basic
 paths:
   /mpesa/b2b/v1/paymentrequest:
     post:
@@ -27,25 +18,23 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                Initiator: ""
-                SecurityCredential: ""
-                CommandID: ""
-                SenderIdentifierType: ""
-                RecieverIdentifierType: ""
-                Amount: ""
-                PartyA: ""
-                PartyB: ""
-                AccountReference: ""
-                Remarks: ""
-                QueueTimeOutURL: ""
-                ResultURL: ""
+              $ref: "#/components/schemas/B2BPaymentRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/B2BPaymentResponse"
+              examples:
+                response:
+                  value: |- 
+                    {
+                        "OriginatorConversationID": "5118-111210482-1",
+                        "ConversationID": "AG_20230420_2010759fd5662ef6d054",
+                        "ResponseCode": "0",
+                        "ResponseDescription": "Accept the service request successfully."
+                    }
   /mpesa/reversal/v1/request:
     post:
       tags:
@@ -57,24 +46,23 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                Initiator: ""
-                SecurityCredential: ""
-                CommandID: TransactionReversal
-                TransactionID: ""
-                Amount: ""
-                ReceiverParty: ""
-                RecieverIdentifierType: "4"
-                ResultURL: ""
-                QueueTimeOutURL: ""
-                Remarks: ""
-                Occasion: ""
+              $ref: "#/components/schemas/TransactionReversalRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionReversalResponse"
+              examples:
+                response:
+                  value: |- 
+                    {    
+                       "OriginatorConversationID":"71840-27539181-07",    
+                       "ConversationID": "AG_20210709_12346c8e6f8858d7b70a",    
+                       "ResponseCode":"0",    
+                       "ResponseDescription": "Accept the service request successfully."
+                    }
   /mpesa/transactionstatus/v1/query:
     post:
       tags:
@@ -86,23 +74,23 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                Initiator: ""
-                SecurityCredential: ""
-                CommandID: TransactionStatusQuery
-                TransactionID: ""
-                PartyA: ""
-                IdentifierType: ""
-                ResultURL: ""
-                QueueTimeOutURL: ""
-                Remarks: ""
-                Occasion: ""
+              $ref: "#/components/schemas/TransactionStatusQueryRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionStatusQueryResponse"
+              examples:
+                response:
+                  value: |- 
+                    {
+                        "OriginatorConversationID": "1236-7134259-1",
+                        "ConversationID": "AG_20210709_1234409f86436c583e3f ",
+                        "ResponseCode": "0",
+                        "ResponseDescription": "Accept the service request successfully."
+                    }
   /mpesa/c2b/v1/simulate:
     post:
       tags:
@@ -114,18 +102,18 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                ShortCode: " "
-                CommandID: CustomerPayBillOnline
-                Amount: " "
-                Msisdn: " "
-                BillRefNumber: " "
+              $ref: "#/components/schemas/C2BPaymentSimulationRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/C2BPaymentSimulationResponse"
+              examples:
+                response:
+                  value: |- 
+                    {}  # Empty response schema
   /mpesa/stkpushquery/v1/query:
     post:
       tags:
@@ -137,17 +125,25 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                BusinessShortCode: " "
-                Password: " "
-                Timestamp: " "
-                CheckoutRequestID: " "
+              $ref: "#/components/schemas/StkPushQueryRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StkPushQueryResponse"
+              examples:
+                response:
+                  value: |- 
+                    {    
+                       "ResponseCode":"0",    
+                       "ResponseDescription": "The service request has been accepted successfully",    
+                       "MerchantRequestID":"22205-34066-1",    
+                       "CheckoutRequestID": "ws_CO_13012021093521236557",
+                       "ResultCode":"0",
+                       "ResultDesc":"The service request is processed successfully."
+                    }
   /mpesa/b2c/v1/paymentrequest:
     post:
       tags:
@@ -159,23 +155,23 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                InitiatorName: ""
-                SecurityCredential: ""
-                CommandID: ""
-                Amount: ""
-                PartyA: ""
-                PartyB: ""
-                Remarks: ""
-                QueueTimeOutURL: ""
-                ResultURL: ""
-                Occasion: ""
+              $ref: "#/components/schemas/B2CPaymentRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/B2CPaymentResponse"
+              examples:
+                response:
+                  value: |- 
+                    {    
+                     "ConversationID": "AG_20191219_00005797af5d7d75f652",    
+                     "OriginatorConversationID": "16740-34861180-1",    
+                     "ResponseCode": "0",    
+                     "ResponseDescription": "Accept the service request successfully."
+                    }
   /mpesa/stkpush/v1/processrequest:
     post:
       tags:
@@ -187,24 +183,18 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                BusinessShortCode: " "
-                Password: " "
-                Timestamp: " "
-                TransactionType: CustomerPayBillOnline
-                Amount: " "
-                PartyA: " "
-                PartyB: " "
-                PhoneNumber: " "
-                CallBackURL: https://ip_address:port/callback
-                AccountReference: " "
-                TransactionDesc: " "
+              $ref: "#/components/schemas/StkPushRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StkPushResponse"
+              examples:
+                response:
+                  value: |- 
+                    {}  # Empty response schema
   /mpesa/accountbalance/v1/query:
     post:
       tags:
@@ -216,21 +206,23 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                Initiator: ""
-                SecurityCredential: ""
-                CommandID: AccountBalance
-                PartyA: ""
-                IdentifierType: "4"
-                Remarks: ""
-                QueueTimeOutURL: ""
-                ResultURL: ""
+              $ref: "#/components/schemas/AccountBalanceQueryRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountBalanceQueryResponse"
+              examples:
+                response:
+                  value: |- 
+                    {
+                        "OriginatorConversationID": " ",
+                        "ConversationID": " ",
+                        "ResponseCode": " ",
+                        "ResponseDescription": " "
+                    }
   /oauth/v1/generate:
     get:
       tags:
@@ -248,7 +240,16 @@ paths:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OAuthAccessTokenResponse"
+              examples:
+                credentials:
+                  value: |- 
+                    {    
+                       "access_token": "c9SQxWWhmdVRlyh0zh8gZDTkubVF",
+                       "expires_in":"3599"
+                    }
   /mpesa/c2b/v1/registerurl:
     post:
       tags:
@@ -260,14 +261,311 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              example:
-                ShortCode: ""
-                ResponseType: ""
-                ConfirmationURL: ""
-                ValidationURL: ""
+              $ref: "#/components/schemas/C2BURLRegistrationRequest"
       responses:
         "200":
           description: Successful response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/C2BURLRegistrationResponse"
+              examples:
+                response:
+                  value: |- 
+                    {
+                        "OriginatorCoversationID": "7619-37765134-1",
+                        "ResponseCode": "0",
+                        "ResponseDescription": "success"
+                    }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    B2BPaymentRequest:
+      type: object
+      properties:
+        Initiator:
+          type: string
+        SecurityCredential:
+          type: string
+        CommandID:
+          type: string
+        SenderIdentifierType:
+          type: string
+        ReceiverIdentifierType:
+          type: string
+        Amount:
+          type: integer
+          format: int64
+        PartyA:
+          type: string
+        PartyB:
+          type: string
+        AccountReference:
+          type: string
+        Remarks:
+          type: string
+        QueueTimeOutURL:
+          type: string
+        ResultURL:
+          type: string
+    B2BPaymentResponse:
+      type: object
+      properties:
+        OriginatorConversationID:
+          type: string
+        ConversationID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    TransactionReversalRequest:
+      type: object
+      properties:
+        Initiator:
+          type: string
+        SecurityCredential:
+          type: string
+        CommandID:
+          type: string
+        TransactionID:
+          type: string
+        Amount:
+          type: integer
+          format: int64
+        ReceiverParty:
+          type: string
+        ReceiverIdentifierType:
+          type: string
+        ResultURL:
+          type: string
+        QueueTimeOutURL:
+          type: string
+        Remarks:
+          type: string
+        Occasion:
+          type: string
+    TransactionReversalResponse:
+      type: object
+      properties:
+        OriginatorConversationID:
+          type: string
+        ConversationID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    TransactionStatusQueryRequest:
+      type: object
+      properties:
+        Initiator:
+          type: string
+        SecurityCredential:
+          type: string
+        CommandID:
+          type: string
+        TransactionID:
+          type: string
+        PartyA:
+          type: string
+        IdentifierType:
+          type: string
+        ResultURL:
+          type: string
+        QueueTimeOutURL:
+          type: string
+        Remarks:
+          type: string
+        Occasion:
+          type: string
+    TransactionStatusQueryResponse:
+      type: object
+      properties:
+        OriginatorConversationID:
+          type: string
+        ConversationID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    C2BPaymentSimulationRequest:
+      type: object
+      properties:
+        ShortCode:
+          type: string
+        CommandID:
+          type: string
+        Amount:
+          type: integer
+          format: int64
+        Msisdn:
+          type: string
+        BillRefNumber:
+          type: string
+    C2BPaymentSimulationResponse:
+      type: object
+      properties: {}
+    StkPushQueryRequest:
+      type: object
+      properties:
+        BusinessShortCode:
+          type: string
+        Password:
+          type: string
+        Timestamp:
+          type: string
+        CheckoutRequestID:
+          type: string
+    StkPushQueryResponse:
+      type: object
+      properties:
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+        MerchantRequestID:
+          type: string
+        CheckoutRequestID:
+          type: string
+        ResultCode:
+          type: string
+        ResultDesc:
+          type: string
+    B2CPaymentRequest:
+      type: object
+      properties:
+        InitiatorName:
+          type: string
+        SecurityCredential:
+          type: string
+        CommandID:
+          type: string
+        Amount:
+          type: integer
+          format: int64
+        PartyA:
+          type: string
+        PartyB:
+          type: string
+        Remarks:
+          type: string
+        QueueTimeOutURL:
+          type: string
+        ResultURL:
+          type: string
+        Occasion:
+          type: string
+    B2CPaymentResponse:
+      type: object
+      properties:
+        ConversationID:
+          type: string
+        OriginatorConversationID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    StkPushRequest:
+      type: object
+      properties:
+        BusinessShortCode:
+          type: string
+        Password:
+          type: string
+        Timestamp:
+          type: string
+        TransactionType:
+          type: string
+        Amount:
+          type: integer
+          format: int64
+        PartyA:
+          type: string
+        PartyB:
+          type: string
+        PhoneNumber:
+          type: string
+        CallBackURL:
+          type: string
+        AccountReference:
+          type: string
+        TransactionDesc:
+          type: string
+    StkPushResponse:
+      type: object
+      properties:
+        MerchantRequestID:
+          type: string
+        CheckoutRequestID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    AccountBalanceQueryRequest:
+      type: object
+      properties:
+        Initiator:
+          type: string
+        SecurityCredential:
+          type: string
+        CommandID:
+          type: string
+        PartyA:
+          type: string
+        IdentifierType:
+          type: string
+        Remarks:
+          type: string
+        QueueTimeOutURL:
+          type: string
+        ResultURL:
+          type: string
+    AccountBalanceQueryResponse:
+      type: object
+      properties:
+        OriginatorConversationID:
+          type: string
+        ConversationID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    C2BURLRegistrationRequest:
+      type: object
+      properties:
+        ShortCode:
+          type: string
+        ResponseType:
+          type: string
+        ConfirmationURL:
+          type: string
+        ValidationURL:
+          type: string
+    C2BURLRegistrationResponse:
+      type: object
+      properties:
+        OriginatorCoversationID:
+          type: string
+        ResponseCode:
+          type: string
+        ResponseDescription:
+          type: string
+    OAuthAccessTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
