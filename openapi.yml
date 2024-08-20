@@ -28,7 +28,7 @@ paths:
                 $ref: "#/components/schemas/B2BPaymentResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {
                         "OriginatorConversationID": "5118-111210482-1",
                         "ConversationID": "AG_20230420_2010759fd5662ef6d054",
@@ -56,7 +56,7 @@ paths:
                 $ref: "#/components/schemas/TransactionReversalResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {    
                        "OriginatorConversationID":"71840-27539181-07",    
                        "ConversationID": "AG_20210709_12346c8e6f8858d7b70a",    
@@ -84,7 +84,7 @@ paths:
                 $ref: "#/components/schemas/TransactionStatusQueryResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {
                         "OriginatorConversationID": "1236-7134259-1",
                         "ConversationID": "AG_20210709_1234409f86436c583e3f ",
@@ -112,7 +112,7 @@ paths:
                 $ref: "#/components/schemas/C2BPaymentSimulationResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {}  # Empty response schema
   /mpesa/stkpushquery/v1/query:
     post:
@@ -135,7 +135,7 @@ paths:
                 $ref: "#/components/schemas/StkPushQueryResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {    
                        "ResponseCode":"0",    
                        "ResponseDescription": "The service request has been accepted successfully",    
@@ -165,7 +165,7 @@ paths:
                 $ref: "#/components/schemas/B2CPaymentResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {    
                      "ConversationID": "AG_20191219_00005797af5d7d75f652",    
                      "OriginatorConversationID": "16740-34861180-1",    
@@ -193,7 +193,7 @@ paths:
                 $ref: "#/components/schemas/StkPushResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {}  # Empty response schema
   /mpesa/accountbalance/v1/query:
     post:
@@ -216,7 +216,7 @@ paths:
                 $ref: "#/components/schemas/AccountBalanceQueryResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {
                         "OriginatorConversationID": " ",
                         "ConversationID": " ",
@@ -235,7 +235,7 @@ paths:
           in: query
           schema:
             type: string
-          example: client_credentials
+            default: client_credentials
       responses:
         "200":
           description: Successful response
@@ -245,7 +245,7 @@ paths:
                 $ref: "#/components/schemas/OAuthAccessTokenResponse"
               examples:
                 credentials:
-                  value: |- 
+                  value: |-
                     {    
                        "access_token": "c9SQxWWhmdVRlyh0zh8gZDTkubVF",
                        "expires_in":"3599"
@@ -271,7 +271,7 @@ paths:
                 $ref: "#/components/schemas/C2BURLRegistrationResponse"
               examples:
                 response:
-                  value: |- 
+                  value: |-
                     {
                         "OriginatorCoversationID": "7619-37765134-1",
                         "ResponseCode": "0",
@@ -291,98 +291,154 @@ components:
       properties:
         Initiator:
           type: string
+          description: The M-Pesa API operator username. This user needs Org Business Pay Bill API initiator role on M-Pesa
         SecurityCredential:
           type: string
+          description: Encrypted credential of the user getting transaction status
         CommandID:
           type: string
+          enum:
+            - BusinessPayBill
+          description: Takes only the 'BusinessPayBill' Command ID.
         SenderIdentifierType:
-          type: string
+          type: integer
+          format: int64
+          enum:
+            - 4
+          description: The type of shortcode from which money is deducted. For this API, only "4" is allowed.
         ReceiverIdentifierType:
-          type: string
+          type: integer
+          format: int64
+          enum:
+            - 4
+          description: The type of shortcode to which money is sent. For this API, only "4" is allowed.
         Amount:
           type: integer
           format: int64
+          description: The transaction amount.
         PartyA:
-          type: string
+          type: integer
+          format: int64
+          description: Your shortcode. The shortcode from which money will be deducted.
         PartyB:
-          type: string
+          type: integer
+          format: int64
+          description: The shortcode to which money will be moved
         AccountReference:
           type: string
+          description: The account number to be associated with the payment. Up to 13 characters.
         Remarks:
           type: string
+          description: Comments that are sent along with the transaction
         QueueTimeOutURL:
           type: string
+          description: A URL that will be used to notify your system in case the request times out before processing.
         ResultURL:
           type: string
+          description: A URL that will be used to send transaction results after processing.
     B2BPaymentResponse:
       type: object
       properties:
         OriginatorConversationID:
           type: string
+          description: Unique request identifier assigned by Daraja upon successful request submission.
         ConversationID:
           type: string
+          description: Unique request identifier assigned by M-Pesa upon successful request submission.
         ResponseCode:
           type: string
+          description: The numeric status code indicates the status of transaction processing. 0 means success and any other code means an error occurred or the transaction failed.
         ResponseDescription:
           type: string
+          description: Response description message
     TransactionReversalRequest:
       type: object
       properties:
         Initiator:
           type: string
+          description: The name of the initiator initiating the request.
         SecurityCredential:
           type: string
+          description: Encrypted credential of the user getting transaction status
         CommandID:
           type: string
+          enum:
+            - TransactionReversal
+          description: Takes only the 'TransactionReversal' Command ID.
         TransactionID:
           type: string
+          description: Unique identifier to identify a transaction on Mpesa
         Amount:
           type: integer
           format: int64
+          description: The amount of money being sent to the customer.
         ReceiverParty:
-          type: string
+          type: integer
+          format: int64
+          description: The organization that receives the transaction.
         ReceiverIdentifierType:
           type: string
+          description: Type of organization receiving the transaction
         ResultURL:
           type: string
+          description: URL where the results will be sent by M-Pesa API
         QueueTimeOutURL:
           type: string
+          description: URL where the results will be sent by M-Pesa API
         Remarks:
           type: string
+          description: Comments that are sent along with the transaction
         Occasion:
           type: string
+          description: Any additional information to be associated with the transaction.
     TransactionReversalResponse:
       type: object
       properties:
         OriginatorConversationID:
           type: string
+          description: The unique request ID for tracking a transaction
         ConversationID:
           type: string
+          description: The unique request ID returned my M-PESA for each request made
         ResponseCode:
           type: string
+          description: he numeric status code indicates the status transaction processing. 0 means success and any other code means an error occurred or the transaction failed. Success submission message or an error description
         ResponseDescription:
           type: string
+          description: Response description message
     TransactionStatusQueryRequest:
       type: object
       properties:
         Initiator:
           type: string
+          description: The name of the initiator initiating the request.
         SecurityCredential:
           type: string
+          description: Encrypted credential of the user getting transaction status
         CommandID:
           type: string
+          enum:
+            - TransactionStatusQuery
+          description: Takes only the 'TransactionStatusQuery' Command ID.
         TransactionID:
           type: string
+          description: Unique identifier to identify a transaction on Mpesa
         PartyA:
-          type: string
+          type: integer
+          format: int64
+          description: Organization/MSISDN receiving the transaction
         IdentifierType:
           type: string
+          description: Type of organization receiving the transaction
         ResultURL:
           type: string
+          description: URL where the results will be sent by M-Pesa API
         QueueTimeOutURL:
           type: string
+          description: URL where the results will be sent by M-Pesa API
         Remarks:
           type: string
+          description: Comments that are sent along with the transaction
         Occasion:
           type: string
     TransactionStatusQueryResponse:
@@ -390,12 +446,17 @@ components:
       properties:
         OriginatorConversationID:
           type: string
+          description: The unique request ID for tracking a transaction
         ConversationID:
           type: string
+          description: The unique request ID returned my M-PESA for each request made
         ResponseCode:
-          type: string
+          type: integer
+          format: int64
+          description: he numeric status code indicates the status transaction processing. 0 means success and any other code means an error occurred or the transaction failed. Success submission message or an error description
         ResponseDescription:
           type: string
+          description: Response description message
     C2BPaymentSimulationRequest:
       type: object
       properties:
@@ -417,26 +478,39 @@ components:
       type: object
       properties:
         BusinessShortCode:
-          type: string
+          type: integer
+          format: int64
+          description: This is the organization's shortcode (Paybill or Buygoods - a 5 to 7-digit account number) used to identify an organization and receive the transaction.
         Password:
           type: string
+          description: This is the password used for encrypting the request sent. a base64 encoded string. (The base64 string is a combination of Shortcode+Passkey+Timestamp).
         Timestamp:
           type: string
+          pattern: '^\d{14}$'
+          description: This is the Timestamp of the transaction, normally in the format of YEAR+MONTH+DATE+HOUR+MINUTE+SECOND (YYYYMMDDHHMMSS). Each part should be at least two digits, apart from the year which takes four digits.
         CheckoutRequestID:
           type: string
+          description: This is a global unique identifier of the processed checkout transaction request.
     StkPushQueryResponse:
       type: object
       properties:
         ResponseCode:
-          type: string
+          type: integer
+          format: int64
+          description: This is a numeric status code that indicates the status of the request. 0 means the request was successful.
         ResponseDescription:
           type: string
+          description: Response description is an acknowledgment message from the API that gives the status of the request submission usually maps to a specific ResponseCode value. It can be a "Success" submission message or an error description.
         MerchantRequestID:
           type: string
+          description: This is a global unique Identifier for any submitted payment request.
         CheckoutRequestID:
           type: string
+          description: This is a global unique identifier of the processed checkout transaction request.
         ResultCode:
-          type: string
+          type: integer
+          format: int64
+          description: This is a numeric status code that indicates the status of the request. 0 means the request was successful.
         ResultDesc:
           type: string
     B2CPaymentRequest:
@@ -444,36 +518,59 @@ components:
       properties:
         InitiatorName:
           type: string
+          description: This is an API user created by the Business Administrator of the M-PESA Bulk disbursement account that is active and authorized to initiate B2C transactions via API.
         SecurityCredential:
           type: string
+          description: This is the value obtained after encrypting the API initiator password. The password on Sandbox has been provisioned on the simulator. However, on production the password is created when the user is being created on the M-PESA organization portal.
         CommandID:
           type: string
+          enum:
+            - SalaryPayment
+            - PromotionPayment
+            - BusinessPayment
+          description: >
+            This is a unique command that specifies B2C transaction type.
+            SalaryPayment: This supports sending money to both registered and unregistered M-Pesa customers.
+            BusinessPayment: This is a normal business to customer payment, supports only M-PESA registered customers.
+            PromotionPayment: This is a promotional payment to customers. The M-PESA notification message is a congratulatory message. Supports only M-PESA registered customers.
         Amount:
           type: integer
           format: int64
+          description: The amount of money being sent to the customer.
         PartyA:
-          type: string
+          type: integer
+          format: int64
+          description: This is the B2C organization shortcode from which the money is sent from.
         PartyB:
           type: string
+          description: This is the customer mobile number to receive the amount. - The number should have the country code (254) without the plus sign.
         Remarks:
           type: string
+          description: Any additional information to be associated with the transaction.
         QueueTimeOutURL:
           type: string
+          description: This is the URL to be specified in your request that will be used by API Proxy to send notification incase the payment request is timed out while awaiting processing in the queue.
         ResultURL:
           type: string
+          description: This is the URL to be specified in your request that will be used by M-PESA to send notification upon processing of the payment request.
         Occasion:
           type: string
+          description: Any additional information to be associated with the transaction.
     B2CPaymentResponse:
       type: object
       properties:
         ConversationID:
           type: string
+          description: This is a global unique identifier for the transaction request returned by the M-PESA upon successful request submission.
         OriginatorConversationID:
           type: string
+          description: This is a global unique identifier for the transaction request returned by the API proxy upon successful request submission.
         ResponseCode:
           type: string
+          description: It indicates whether Mobile Money accepts the request or not.
         ResponseDescription:
           type: string
+          description: This is the description of the request submission status.
     StkPushRequest:
       type: object
       properties:
@@ -516,51 +613,79 @@ components:
       properties:
         Initiator:
           type: string
+          description: This is the credential/username used to authenticate the transaction request
         SecurityCredential:
           type: string
+          description: Base64 encoded string of the M-PESA short code and password, which is encrypted using M-PESA public key and validates the transaction on M-PESA Core system. It indicates the Encrypted credential of the initiator getting the account balance. Its value must match the inputted value of the parameter IdentifierType.
         CommandID:
           type: string
+          enum:
+            - AccountBalance
+          description: A unique command is passed to the M-PESA system.
         PartyA:
-          type: string
+          type: integer
+          format: int64
+          description: The shortcode of the organization querying for the account balance.
         IdentifierType:
-          type: string
+          type: integer
+          format: int64
+          description: Type of organization querying for the account balance.
         Remarks:
           type: string
+          description: Comments that are sent along with the transaction.
         QueueTimeOutURL:
           type: string
+          description: URL where the results will be sent by M-Pesa API.
         ResultURL:
           type: string
+          description: URL where the results will be sent by M-Pesa API.
     AccountBalanceQueryResponse:
       type: object
       properties:
         OriginatorConversationID:
           type: string
+          description: This is a global unique identifier for the transaction request returned by the API proxy upon successful request submission.
         ConversationID:
           type: string
+          description: This is a global unique identifier for the transaction returned by the M-PESA system.
         ResponseCode:
           type: string
+          description: It indicates whether Mobile Money accepts the request or not.
         ResponseDescription:
           type: string
+          description: This is the description of the request submission status.
     C2BURLRegistrationRequest:
       type: object
       properties:
         ShortCode:
-          type: string
+          type: integer
+          format: int64
+          description: Usually, a unique number is tagged to an M-PESA pay bill/till number of the organization.
         ResponseType:
           type: string
+          enum:
+            - Completed
+            - Cancelled
+          description: >
+            This parameter specifies what is to happen if for any reason the validation URL is not reachable. Note that, this is the default action value that determines what M-PESA will do in the scenario that your endpoint is unreachable or is unable to respond on time. Only two values are allowed: Completed or Cancelled. Completed means M-PESA will automatically complete your transaction, whereas Cancelled means M-PESA will automatically cancel the transaction, in the event M-PESA is unable to reach your Validation URL.
         ConfirmationURL:
           type: string
+          description: This is the URL that receives the confirmation request from API upon payment completion.
         ValidationURL:
           type: string
+          description: This is the URL that receives the validation request from the API upon payment submission. The validation URL is only called if the external validation on the registered shortcode is enabled. (By default External Validation is disabled).
     C2BURLRegistrationResponse:
       type: object
       properties:
         OriginatorCoversationID:
           type: string
+          description: This is a global unique identifier for the transaction request returned by the API proxy upon successful request submission.
         ResponseCode:
           type: string
+          description: It indicates whether Mobile Money accepts the request or not.
         ResponseDescription:
           type: string
+          description: This is the status of the request.
     OAuthAccessTokenResponse:
       type: object
       properties:
