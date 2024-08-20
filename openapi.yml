@@ -636,6 +636,66 @@ components:
         ResponseDescription:
           type: string
           description: This is the description of the request submission status.
+    StkPushRequest:
+      type: object
+      required:
+        - BusinessShortCode
+        - Password
+        - Timestamp
+        - TransactionType
+        - Amount
+        - PartyA
+        - PartyB
+        - PhoneNumber
+        - CallBackURL
+        - AccountReference
+        - TransactionDesc
+      properties:
+        BusinessShortCode:
+          type: integer
+          format: int64
+          description: This is the organization's shortcode (Paybill or Buygoods - a 5 to 7-digit account number) used to identify an organization and receive the transaction.
+        Password:
+          type: string
+          description: This is the password used for encrypting the request sent. a base64 encoded string. (The base64 string is a combination of Shortcode+Passkey+Timestamp).
+        Timestamp:
+          type: string
+          pattern: '^\d{14}$'
+          description: This is the Timestamp of the transaction, normally in the format of YEAR+MONTH+DATE+HOUR+MINUTE+SECOND (YYYYMMDDHHMMSS). Each part should be at least two digits, apart from the year which takes four digits.
+        TransactionType:
+          type: string
+          enum:
+            - CustomerPayBillOnline
+            - CustomerBuyGoodsOnline
+          description: >
+            This is the transaction type to be used for the request. Only two types are allowed:
+            CustomerPayBillOnline: This is a transaction where the customer is expected to pay a bill e.g. utility bill.
+            CustomerBuyGoodsOnline: This is a transaction where the customer is expected to pay for goods e.g. a supermarket.
+        Amount:
+          type: integer
+          format: int64
+          description: This is the Amount transacted normally a numeric value. Money that the customer pays to the Shortcode. Only whole numbers are supported.
+        PartyA:
+          type: integer
+          format: int64
+          description: The phone number sending money. The parameter expected is a Valid Safaricom Mobile Number that is M-PESA registered in the format 2547XXXXXXXX
+        PartyB:
+          type: integer
+          format: int64
+          description: The organization shortcode receiving the funds. The parameter expected is a 5 to 7 digit Paybill number.
+        PhoneNumber:
+          type: integer
+          format: int64
+          description: The Mobile Number to receive the STK Pin Prompt. This number can be the same as PartyA value above.
+        CallBackURL:
+          type: string
+          description: A CallBack URL is a valid secure URL that is used to receive notifications from M-Pesa API. It is the endpoint to which the results will be sent by M-Pesa API.
+        AccountReference:
+          type: string
+          description: This is an Alpha-Numeric parameter that is defined by your system as an Identifier of the transaction for the CustomerPayBillOnline transaction type. Along with the business name, this value is also displayed to the customer in the STK Pin Prompt message. Maximum of 12 characters.
+        TransactionDesc:
+          type: string
+          description: This is any additional information/comment that can be sent along with the request from your system. Maximum of 13 Characters.
     StkPushResponse:
       type: object
       properties:

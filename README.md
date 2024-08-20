@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
  - [OAuthAccessTokenResponse](docs/OAuthAccessTokenResponse.md)
  - [StkPushQueryRequest](docs/StkPushQueryRequest.md)
  - [StkPushQueryResponse](docs/StkPushQueryResponse.md)
+ - [StkPushRequest](docs/StkPushRequest.md)
  - [StkPushResponse](docs/StkPushResponse.md)
  - [TransactionReversalRequest](docs/TransactionReversalRequest.md)
  - [TransactionReversalResponse](docs/TransactionReversalResponse.md)

@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mpesa_stkpush_v1_processrequest_post**
-> StkPushResponse mpesa_stkpush_v1_processrequest_post()
+> StkPushResponse mpesa_stkpush_v1_processrequest_post(body)
 
 Initiate a Lipa na M-Pesa Online Payment
 
@@ -166,17 +166,21 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = mpesa_client.PaymentsApi(mpesa_client.ApiClient(configuration))
+body = mpesa_client.StkPushRequest() # StkPushRequest | 
 
 try:
     # Initiate a Lipa na M-Pesa Online Payment
-    api_response = api_instance.mpesa_stkpush_v1_processrequest_post()
+    api_response = api_instance.mpesa_stkpush_v1_processrequest_post(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentsApi->mpesa_stkpush_v1_processrequest_post: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**StkPushRequest**](StkPushRequest.md)|  | 
 
 ### Return type
 

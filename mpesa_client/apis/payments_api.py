@@ -323,41 +323,43 @@ class PaymentsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mpesa_stkpush_v1_processrequest_post(self, **kwargs):  # noqa: E501
+    def mpesa_stkpush_v1_processrequest_post(self, body, **kwargs):  # noqa: E501
         """Initiate a Lipa na M-Pesa Online Payment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_stkpush_v1_processrequest_post(async_req=True)
+        >>> thread = api.mpesa_stkpush_v1_processrequest_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param StkPushRequest body: (required)
         :return: StkPushResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_stkpush_v1_processrequest_post_with_http_info(**kwargs)  # noqa: E501
+            return self.mpesa_stkpush_v1_processrequest_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_stkpush_v1_processrequest_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.mpesa_stkpush_v1_processrequest_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_stkpush_v1_processrequest_post_with_http_info(self, **kwargs):  # noqa: E501
+    def mpesa_stkpush_v1_processrequest_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Initiate a Lipa na M-Pesa Online Payment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_stkpush_v1_processrequest_post_with_http_info(async_req=True)
+        >>> thread = api.mpesa_stkpush_v1_processrequest_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param StkPushRequest body: (required)
         :return: StkPushResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -372,6 +374,10 @@ class PaymentsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_stkpush_v1_processrequest_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -385,6 +391,8 @@ class PaymentsApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

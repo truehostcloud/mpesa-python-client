@@ -69,28 +69,17 @@ class StkPushRequest(object):
         self._account_reference = None
         self._transaction_desc = None
         self.discriminator = None
-        if business_short_code is not None:
-            self.business_short_code = business_short_code
-        if password is not None:
-            self.password = password
-        if timestamp is not None:
-            self.timestamp = timestamp
-        if transaction_type is not None:
-            self.transaction_type = transaction_type
-        if amount is not None:
-            self.amount = amount
-        if party_a is not None:
-            self.party_a = party_a
-        if party_b is not None:
-            self.party_b = party_b
-        if phone_number is not None:
-            self.phone_number = phone_number
-        if call_back_url is not None:
-            self.call_back_url = call_back_url
-        if account_reference is not None:
-            self.account_reference = account_reference
-        if transaction_desc is not None:
-            self.transaction_desc = transaction_desc
+        self.business_short_code = business_short_code
+        self.password = password
+        self.timestamp = timestamp
+        self.transaction_type = transaction_type
+        self.amount = amount
+        self.party_a = party_a
+        self.party_b = party_b
+        self.phone_number = phone_number
+        self.call_back_url = call_back_url
+        self.account_reference = account_reference
+        self.transaction_desc = transaction_desc
 
     @property
     def business_short_code(self):
@@ -112,6 +101,8 @@ class StkPushRequest(object):
         :param business_short_code: The business_short_code of this StkPushRequest.  # noqa: E501
         :type: int
         """
+        if business_short_code is None:
+            raise ValueError("Invalid value for `business_short_code`, must not be `None`")  # noqa: E501
 
         self._business_short_code = business_short_code
 
@@ -135,6 +126,8 @@ class StkPushRequest(object):
         :param password: The password of this StkPushRequest.  # noqa: E501
         :type: str
         """
+        if password is None:
+            raise ValueError("Invalid value for `password`, must not be `None`")  # noqa: E501
 
         self._password = password
 
@@ -158,6 +151,8 @@ class StkPushRequest(object):
         :param timestamp: The timestamp of this StkPushRequest.  # noqa: E501
         :type: str
         """
+        if timestamp is None:
+            raise ValueError("Invalid value for `timestamp`, must not be `None`")  # noqa: E501
 
         self._timestamp = timestamp
 
@@ -181,6 +176,8 @@ class StkPushRequest(object):
         :param transaction_type: The transaction_type of this StkPushRequest.  # noqa: E501
         :type: str
         """
+        if transaction_type is None:
+            raise ValueError("Invalid value for `transaction_type`, must not be `None`")  # noqa: E501
         allowed_values = ["CustomerPayBillOnline", "CustomerBuyGoodsOnline"]  # noqa: E501
         if transaction_type not in allowed_values:
             raise ValueError(
@@ -210,6 +207,8 @@ class StkPushRequest(object):
         :param amount: The amount of this StkPushRequest.  # noqa: E501
         :type: int
         """
+        if amount is None:
+            raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
 
@@ -233,6 +232,8 @@ class StkPushRequest(object):
         :param party_a: The party_a of this StkPushRequest.  # noqa: E501
         :type: int
         """
+        if party_a is None:
+            raise ValueError("Invalid value for `party_a`, must not be `None`")  # noqa: E501
 
         self._party_a = party_a
 
@@ -256,6 +257,8 @@ class StkPushRequest(object):
         :param party_b: The party_b of this StkPushRequest.  # noqa: E501
         :type: int
         """
+        if party_b is None:
+            raise ValueError("Invalid value for `party_b`, must not be `None`")  # noqa: E501
 
         self._party_b = party_b
 
@@ -279,6 +282,8 @@ class StkPushRequest(object):
         :param phone_number: The phone_number of this StkPushRequest.  # noqa: E501
         :type: int
         """
+        if phone_number is None:
+            raise ValueError("Invalid value for `phone_number`, must not be `None`")  # noqa: E501
 
         self._phone_number = phone_number
 
@@ -302,6 +307,8 @@ class StkPushRequest(object):
         :param call_back_url: The call_back_url of this StkPushRequest.  # noqa: E501
         :type: str
         """
+        if call_back_url is None:
+            raise ValueError("Invalid value for `call_back_url`, must not be `None`")  # noqa: E501
 
         self._call_back_url = call_back_url
 
@@ -325,6 +332,8 @@ class StkPushRequest(object):
         :param account_reference: The account_reference of this StkPushRequest.  # noqa: E501
         :type: str
         """
+        if account_reference is None:
+            raise ValueError("Invalid value for `account_reference`, must not be `None`")  # noqa: E501
 
         self._account_reference = account_reference
 
@@ -348,6 +357,8 @@ class StkPushRequest(object):
         :param transaction_desc: The transaction_desc of this StkPushRequest.  # noqa: E501
         :type: str
         """
+        if transaction_desc is None:
+            raise ValueError("Invalid value for `transaction_desc`, must not be `None`")  # noqa: E501
 
         self._transaction_desc = transaction_desc
 
