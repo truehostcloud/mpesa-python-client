@@ -81,8 +81,8 @@ Class | Method | HTTP request | Description
 *ExperienceApi* | [**mpesa_stkpushquery_v1_query_post**](docs/ExperienceApi.md#mpesa_stkpushquery_v1_query_post) | **POST** /mpesa/stkpushquery/v1/query | Query the status of a Lipa na M-Pesa Online Payment
 *ExperienceApi* | [**mpesa_transactionstatus_v1_query_post**](docs/ExperienceApi.md#mpesa_transactionstatus_v1_query_post) | **POST** /mpesa/transactionstatus/v1/query | Query the Transaction Status of an M-Pesa Transaction
 *PaymentsApi* | [**mpesa_b2b_v1_paymentrequest_post**](docs/PaymentsApi.md#mpesa_b2b_v1_paymentrequest_post) | **POST** /mpesa/b2b/v1/paymentrequest | Make a B2B Payment Request
-*PaymentsApi* | [**mpesa_c2b_v1_registerurl_post**](docs/PaymentsApi.md#mpesa_c2b_v1_registerurl_post) | **POST** /mpesa/c2b/v1/registerurl | Register C2B Confirmation and Validation URLs
 *PaymentsApi* | [**mpesa_c2b_v1_simulate_post**](docs/PaymentsApi.md#mpesa_c2b_v1_simulate_post) | **POST** /mpesa/c2b/v1/simulate | Simulate a C2B Payment
+*PaymentsApi* | [**mpesa_c2b_v2_registerurl_post**](docs/PaymentsApi.md#mpesa_c2b_v2_registerurl_post) | **POST** /mpesa/c2b/v2/registerurl | Register C2B Confirmation and Validation URLs
 *PaymentsApi* | [**mpesa_stkpush_v1_processrequest_post**](docs/PaymentsApi.md#mpesa_stkpush_v1_processrequest_post) | **POST** /mpesa/stkpush/v1/processrequest | Initiate a Lipa na M-Pesa Online Payment
 *SecurityApi* | [**oauth_v1_generate_get**](docs/SecurityApi.md#oauth_v1_generate_get) | **GET** /oauth/v1/generate | Generate an OAuth Access Token
 

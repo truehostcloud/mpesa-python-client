@@ -258,7 +258,7 @@ paths:
                        "access_token": "c9SQxWWhmdVRlyh0zh8gZDTkubVF",
                        "expires_in":"3599"
                     }
-  /mpesa/c2b/v1/registerurl:
+  /mpesa/c2b/v2/registerurl:
     post:
       tags:
         - payments
