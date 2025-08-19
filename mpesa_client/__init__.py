@@ -27,6 +27,7 @@ from mpesa_client.models.account_balance_query_request import AccountBalanceQuer
 from mpesa_client.models.account_balance_query_response import AccountBalanceQueryResponse
 from mpesa_client.models.b2_b_payment_request import B2BPaymentRequest
 from mpesa_client.models.b2_b_payment_response import B2BPaymentResponse
+from mpesa_client.models.b2_c_error_response import B2CErrorResponse
 from mpesa_client.models.b2_c_payment_request import B2CPaymentRequest
 from mpesa_client.models.b2_c_payment_response import B2CPaymentResponse
 from mpesa_client.models.c2_b_payment_simulation_request import C2BPaymentSimulationRequest

@@ -32,12 +32,12 @@ class DisbursementApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def mpesa_b2c_v1_paymentrequest_post(self, body, **kwargs):  # noqa: E501
+    def mpesa_b2c_v3_paymentrequest_post(self, body, **kwargs):  # noqa: E501
         """Make a B2C Payment Request  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_b2c_v1_paymentrequest_post(body, async_req=True)
+        >>> thread = api.mpesa_b2c_v3_paymentrequest_post(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -48,17 +48,17 @@ class DisbursementApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.mpesa_b2c_v1_paymentrequest_post_with_http_info(body, **kwargs)  # noqa: E501
+            return self.mpesa_b2c_v3_paymentrequest_post_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.mpesa_b2c_v1_paymentrequest_post_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.mpesa_b2c_v3_paymentrequest_post_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def mpesa_b2c_v1_paymentrequest_post_with_http_info(self, body, **kwargs):  # noqa: E501
+    def mpesa_b2c_v3_paymentrequest_post_with_http_info(self, body, **kwargs):  # noqa: E501
         """Make a B2C Payment Request  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.mpesa_b2c_v1_paymentrequest_post_with_http_info(body, async_req=True)
+        >>> thread = api.mpesa_b2c_v3_paymentrequest_post_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -79,14 +79,14 @@ class DisbursementApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method mpesa_b2c_v1_paymentrequest_post" % key
+                    " to method mpesa_b2c_v3_paymentrequest_post" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `mpesa_b2c_v1_paymentrequest_post`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `mpesa_b2c_v3_paymentrequest_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -114,7 +114,7 @@ class DisbursementApi(object):
         auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/mpesa/b2c/v1/paymentrequest', 'POST',
+            '/mpesa/b2c/v3/paymentrequest', 'POST',
             path_params,
             query_params,
             header_params,

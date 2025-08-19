@@ -4,10 +4,10 @@ All URIs are relative to *https://sandbox.safaricom.co.ke*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mpesa_b2c_v1_paymentrequest_post**](DisbursementApi.md#mpesa_b2c_v1_paymentrequest_post) | **POST** /mpesa/b2c/v1/paymentrequest | Make a B2C Payment Request
+[**mpesa_b2c_v3_paymentrequest_post**](DisbursementApi.md#mpesa_b2c_v3_paymentrequest_post) | **POST** /mpesa/b2c/v3/paymentrequest | Make a B2C Payment Request
 
-# **mpesa_b2c_v1_paymentrequest_post**
-> B2CPaymentResponse mpesa_b2c_v1_paymentrequest_post(body)
+# **mpesa_b2c_v3_paymentrequest_post**
+> B2CPaymentResponse mpesa_b2c_v3_paymentrequest_post(body)
 
 Make a B2C Payment Request
 
@@ -31,10 +31,10 @@ body = mpesa_client.B2CPaymentRequest() # B2CPaymentRequest |
 
 try:
     # Make a B2C Payment Request
-    api_response = api_instance.mpesa_b2c_v1_paymentrequest_post(body)
+    api_response = api_instance.mpesa_b2c_v3_paymentrequest_post(body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DisbursementApi->mpesa_b2c_v1_paymentrequest_post: %s\n" % e)
+    print("Exception when calling DisbursementApi->mpesa_b2c_v3_paymentrequest_post: %s\n" % e)
 ```
 
 ### Parameters

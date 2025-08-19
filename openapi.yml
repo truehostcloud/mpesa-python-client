@@ -149,7 +149,7 @@ paths:
                        "ResultCode":"0",
                        "ResultDesc":"The service request is processed successfully."
                     }
-  /mpesa/b2c/v1/paymentrequest:
+  /mpesa/b2c/v3/paymentrequest:
     post:
       tags:
         - disbursement
@@ -171,13 +171,30 @@ paths:
                 $ref: "#/components/schemas/B2CPaymentResponse"
               examples:
                 response:
-                  value: |-
-                    {    
-                     "ConversationID": "AG_20191219_00005797af5d7d75f652",    
-                     "OriginatorConversationID": "16740-34861180-1",    
-                     "ResponseCode": "0",    
-                     "ResponseDescription": "Accept the service request successfully."
-                    }
+                  value:
+                    ConversationID: "AG_20191219_00005797af5d7d75f652"
+                    OriginatorConversationID: "16740-34861180-1"
+                    ResponseCode: "0"
+                    ResponseDescription: "Accept the service request successfully."
+        "4XX":
+          description: Client Error - Request validation failures, authentication issues, or invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/B2CErrorResponse"
+              examples:
+                invalid_token:
+                  value:
+                    requestId: "11728-2929992-1"
+                    errorCode: "401.002.01"
+                    errorMessage: "Error Occurred - Invalid Access Token - BJGFGOXv5aZnw90KkA4TDtu4Xdyf"
+        "5XX":
+          description: Server Error - M-Pesa system errors or temporary service unavailability
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/B2CErrorResponse"
+
   /mpesa/stkpush/v1/processrequest:
     post:
       tags:
@@ -296,6 +313,25 @@ components:
       type: http
       scheme: basic
   schemas:
+    B2CErrorResponse:
+      type: object
+      required:
+        - requestId
+        - errorCode
+        - errorMessage
+      properties:
+        requestId:
+          type: string
+          description: Unique identifier for the failed request
+          example: "11728-2929992-1"
+        errorCode:
+          type: string
+          description: Specific error code indicating the type of failure
+          example: "401.002.01"
+        errorMessage:
+          type: string
+          description: Detailed error message explaining what went wrong
+          example: "Error Occurred - Invalid Access Token - BJGFGOXv5aZnw90KkA4TDtu4Xdyf"
     B2BPaymentRequest:
       type: object
       required:

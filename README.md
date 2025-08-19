@@ -63,10 +63,10 @@ body = mpesa_client.B2CPaymentRequest() # B2CPaymentRequest |
 
 try:
     # Make a B2C Payment Request
-    api_response = api_instance.mpesa_b2c_v1_paymentrequest_post(body)
+    api_response = api_instance.mpesa_b2c_v3_paymentrequest_post(body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DisbursementApi->mpesa_b2c_v1_paymentrequest_post: %s\n" % e)
+    print("Exception when calling DisbursementApi->mpesa_b2c_v3_paymentrequest_post: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -75,7 +75,7 @@ All URIs are relative to *https://sandbox.safaricom.co.ke*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DisbursementApi* | [**mpesa_b2c_v1_paymentrequest_post**](docs/DisbursementApi.md#mpesa_b2c_v1_paymentrequest_post) | **POST** /mpesa/b2c/v1/paymentrequest | Make a B2C Payment Request
+*DisbursementApi* | [**mpesa_b2c_v3_paymentrequest_post**](docs/DisbursementApi.md#mpesa_b2c_v3_paymentrequest_post) | **POST** /mpesa/b2c/v3/paymentrequest | Make a B2C Payment Request
 *ExperienceApi* | [**mpesa_accountbalance_v1_query_post**](docs/ExperienceApi.md#mpesa_accountbalance_v1_query_post) | **POST** /mpesa/accountbalance/v1/query | Make an Account Balance query
 *ExperienceApi* | [**mpesa_reversal_v1_request_post**](docs/ExperienceApi.md#mpesa_reversal_v1_request_post) | **POST** /mpesa/reversal/v1/request | Reverse an M-Pesa Transaction
 *ExperienceApi* | [**mpesa_stkpushquery_v1_query_post**](docs/ExperienceApi.md#mpesa_stkpushquery_v1_query_post) | **POST** /mpesa/stkpushquery/v1/query | Query the status of a Lipa na M-Pesa Online Payment
@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
  - [AccountBalanceQueryResponse](docs/AccountBalanceQueryResponse.md)
  - [B2BPaymentRequest](docs/B2BPaymentRequest.md)
  - [B2BPaymentResponse](docs/B2BPaymentResponse.md)
+ - [B2CErrorResponse](docs/B2CErrorResponse.md)
  - [B2CPaymentRequest](docs/B2CPaymentRequest.md)
  - [B2CPaymentResponse](docs/B2CPaymentResponse.md)
  - [C2BPaymentSimulationRequest](docs/C2BPaymentSimulationRequest.md)
